@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="compiler," />
 
 
 
@@ -89,13 +89,14 @@
 
 
 <meta name="description" content="术语 编译程序将高级语言程序翻译成目标机上的可执行文件 解释程序对高级语言程序逐行翻译成目标机上的可执行代码同时运行每一条翻译结果 翻译程序将一种编程语言翻译成另一种编程语言">
+<meta name="keywords" content="compiler">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理">
 <meta property="og:url" content="http://yoursite.com/2018/03/01/compiler/index.html">
 <meta property="og:site_name" content="nfwyst">
 <meta property="og:description" content="术语 编译程序将高级语言程序翻译成目标机上的可执行文件 解释程序对高级语言程序逐行翻译成目标机上的可执行代码同时运行每一条翻译结果 翻译程序将一种编程语言翻译成另一种编程语言">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-31T10:30:56.198Z">
+<meta property="og:updated_time" content="2018-06-21T16:23:17.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理">
 <meta name="twitter:description" content="术语 编译程序将高级语言程序翻译成目标机上的可执行文件 解释程序对高级语言程序逐行翻译成目标机上的可执行代码同时运行每一条翻译结果 翻译程序将一种编程语言翻译成另一种编程语言">
@@ -130,6 +131,7 @@
 
 
 
+<link href='http://cdn.webfont.youziku.com/webfonts/nomal/119666/30639/5b21077cf629d911b4b0e3e5.css' rel='stylesheet' type='text/css' />
 
 
   <title> 编译原理 | nfwyst </title>
@@ -324,6 +326,24 @@
           </span>
 
           
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/compiler/" itemprop="url" rel="index">
+                    <span itemprop="name">compiler</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -453,6 +473,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/compiler/" rel="tag"><i class="fa fa-tags" aria-hidden="true"></i> compiler</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
@@ -467,6 +493,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/21/webfrw/" rel="prev" title="实现一个简单的 web 框架">
+                实现一个简单的 web 框架 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -529,8 +559,8 @@
                src="/avatar.png"
                alt="nfwyst" />
           <p class="site-author-name" itemprop="name">nfwyst</p>
-          <p class="site-description motion-element" itemprop="description">罗马没有假日</p>
-          <p class="site-description motion-element"><span class="post-count">累计字数: 10.5k</span></p>
+          <p class="site-description motion-element" itemprop="description">自律</p>
+          <p class="site-description motion-element"><span class="post-count">累计字数: 8.8k</span></p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
@@ -543,7 +573,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -552,7 +582,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -925,10 +955,10 @@
     }, 1450);
 
     // image change
-    setInterval(function () {
-      url = origin + "&&disable=" + Date.now();
-      dest.style.backgroundImage = "url(" + url + ")";
-    }, 20000);
+    // setInterval(function () {
+    //   url = origin + "&&disable=" + Date.now();
+    //   dest.style.backgroundImage = "url(" + url + ")";
+    // }, 20000);
 
   </script>
 </body>
