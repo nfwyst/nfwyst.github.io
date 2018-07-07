@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="异步," />
+  <meta name="keywords" content="canvas,数据可视化," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="通常 js 代码如果是异步的, 就会有很多嵌套, 这样的代码是很难阅读的, 所以就出现了  Promise, 可以让我们跳出 callback 的层层嵌套, 但是 Promise 似乎还是不够完美, 所以又出现了 async await, 但是本文只讲 Promise">
-<meta name="keywords" content="异步">
+<meta name="description" content="什么是 canvascanvas 是 HTML5 提供的新 API, 它是一个矩形区域的画布, 通过 API 我们可以在canvas上进行绘制, 通过绘制来控制每一个像素的显示.">
+<meta name="keywords" content="canvas,数据可视化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Promise">
-<meta property="og:url" content="http://yoursite.com/2017/08/17/Promise/index.html">
+<meta property="og:title" content="canvas 入门">
+<meta property="og:url" content="http://yoursite.com/2018/07/04/canvas/index.html">
 <meta property="og:site_name" content="nfwyst">
-<meta property="og:description" content="通常 js 代码如果是异步的, 就会有很多嵌套, 这样的代码是很难阅读的, 所以就出现了  Promise, 可以让我们跳出 callback 的层层嵌套, 但是 Promise 似乎还是不够完美, 所以又出现了 async await, 但是本文只讲 Promise">
+<meta property="og:description" content="什么是 canvascanvas 是 HTML5 提供的新 API, 它是一个矩形区域的画布, 通过 API 我们可以在canvas上进行绘制, 通过绘制来控制每一个像素的显示.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-31T11:33:08.554Z">
+<meta property="og:updated_time" content="2018-07-07T09:03:57.584Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promise">
-<meta name="twitter:description" content="通常 js 代码如果是异步的, 就会有很多嵌套, 这样的代码是很难阅读的, 所以就出现了  Promise, 可以让我们跳出 callback 的层层嵌套, 但是 Promise 似乎还是不够完美, 所以又出现了 async await, 但是本文只讲 Promise">
+<meta name="twitter:title" content="canvas 入门">
+<meta name="twitter:description" content="什么是 canvascanvas 是 HTML5 提供的新 API, 它是一个矩形区域的画布, 通过 API 我们可以在canvas上进行绘制, 通过绘制来控制每一个像素的显示.">
 
 
 
@@ -127,14 +127,14 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/17/Promise/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/04/canvas/"/>
 
 
 
 <link href='http://cdn.webfont.youziku.com/webfonts/nomal/119666/30639/5b21077cf629d911b4b0e3e5.css' rel='stylesheet' type='text/css' />
 
 
-  <title> Promise | nfwyst </title>
+  <title> canvas 入门 | nfwyst </title>
 </head>
 
 <body id="vive" itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +278,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/17/Promise/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/04/canvas/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="nfwyst">
@@ -302,7 +302,7 @@
             
             
               
-                Promise
+                canvas 入门
               
             
           </h1>
@@ -315,8 +315,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-17T21:03:11+08:00">
-                2017-08-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-04T22:26:00+08:00">
+                2018-07-04
               </time>
             
 
@@ -334,8 +334,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES2015/" itemprop="url" rel="index">
-                    <span itemprop="name">ES2015</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -369,38 +369,45 @@
       
 
       
-        <p>通常 js 代码如果是异步的, 就会有很多嵌套, 这样的代码是很难阅读的, 所以就出现了  Promise, 可以让我们跳出 callback 的层层嵌套, 但是 Promise 似乎还是不够完美, 所以又出现了 <code>async await</code>, 但是本文只讲 Promise</p>
+        <h1 id="什么是-canvas"><a href="#什么是-canvas" class="headerlink" title="什么是 canvas"></a>什么是 canvas</h1><p>canvas 是 HTML5 提供的新 API, 它是一个矩形区域的画布, 通过 API 我们可以在canvas上进行绘制, 通过绘制来控制每一个像素的显示.</p>
 <a id="more"></a>
-<hr>
-
-<h1 id="如何创建-Promise"><a href="#如何创建-Promise" class="headerlink" title="如何创建 Promise"></a>如何创建 Promise</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        resolve(<span class="string">'hello, world'</span>)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>传给 Promise 的参数是一个函数, 这个函数在 Promise 创建后会立即执行, 对于刚建立起来的 Promise 它的状态是:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;[[PromiseStatus]]: <span class="string">"pending"</span>, [[PromiseValue]]: <span class="literal">undefined</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对于完成了的 Promise, 它的状态是:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;[[PromiseStatus]]: <span class="string">"resolved"</span>, [[PromiseValue]]: <span class="string">"Hello world"</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="使用-Promise"><a href="#使用-Promise" class="headerlink" title="使用 Promise"></a>使用 Promise</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">myPromise.then(</span><br><span class="line">    (value) =&gt; &#123;<span class="built_in">console</span>.log(value);&#125;,</span><br><span class="line">    (error) =&gt; &#123;<span class="built_in">console</span>.log(error);&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>使用 Promise 的时候调用 then 方法, 分别传入两个函数, 第一个函数是执行成功之后的处理函数, 第二个函数是执行失败之后的处理函数</p>
-<h1 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h1><h2 id="一般错误处理"><a href="#一般错误处理" class="headerlink" title="一般错误处理"></a>一般错误处理</h2><p>上面提到 Promise then 方法的第二个参数是执行失败之后的处理函数, 即错误处理函数, 它在 reject 执行时被调用:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'success'</span>), <span class="number">1000</span>)</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        reject(<span class="string">'fail'</span>, <span class="number">500</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">myPromise.then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;<span class="built_in">console</span>.log(<span class="string">`执行成功, 返回了: <span class="subst">$&#123;value&#125;</span>`</span>);&#125;,</span><br><span class="line">(error) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`执行失败, 返回了: <span class="subst">$&#123;error&#125;</span>`</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>Promise 的状态只能改变一次, 以后就固定了, 所以在执行 <code>reject(&#39;fail&#39;, 500)</code> 之后它的状态变成了:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[PromiseStatus]]: <span class="string">"rejected"</span>, [[PromiseValue]]: <span class="string">"fail"</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<p>所以 resolve 并不会被调用, 同理如果 resolve 被调用, reject 将不会被调用</p>
-<h2 id="catch-方式的错误处理"><a href="#catch-方式的错误处理" class="headerlink" title="catch 方式的错误处理"></a>catch 方式的错误处理</h2><p>除了直接传参, 另一种方式是使用 catch:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">myPromise.then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;<span class="built_in">console</span>.log(<span class="string">`执行成功, 返回了: <span class="subst">$&#123;value&#125;</span>`</span>);&#125;).catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`执行失败, 返回了: <span class="subst">$&#123;error&#125;</span>`</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>它的好处是容易阅读, 并且可以 catch 到 then 中的错误, 而第一种方式不可以</p>
-<h1 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h1><p>如果有多个 Promise 需要一起执行, 可以使用 <code>Promise.all</code> 来实现, 并且不管 Promise.all 里面有多少 Promise, 只要有一个失败就会调用错误处理函数</p>
-<h2 id="使用-Promise-all"><a href="#使用-Promise-all" class="headerlink" title="使用 Promise.all"></a>使用 Promise.all</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.all([myPromise1, myPromise2]).then(</span><br><span class="line">    (value) =&gt; <span class="built_in">console</span>.log(value)</span><br><span class="line">).catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;<span class="built_in">console</span>.log(error)&#125;)</span><br></pre></td></tr></table></figure>
-<p>执行的结果是一个由所有 Promise resolve 之后返回的数据列表</p>
-<h1 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race"></a>Promise.race</h1><p>Promise.race 与 Promise.all 的区别是, Promise.race 中指定的 Promise 任务, 只要有一个成功, 结果就算完成, 比如多个 Promise 做同样的事情, 但是请求不同的服务器, 只要有一个结果返回, 结果就算成功:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myPromise1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'Hello mypromise1'</span>), <span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> myPromise2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(<span class="string">'hello, mypromise2'</span>), <span class="number">1500</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Promise</span>.race([myPromise1, myPromise2]).then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;<span class="built_in">console</span>.log(value);&#125;).catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;<span class="built_in">console</span>.log(error);&#125;)</span><br></pre></td></tr></table></figure>
-<p>结果输出: <code>Hello mypromise1</code>, race 之意是赛跑, 很好的说明了这个方法的功能</p>
-<h1 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h1><p>向服务器发送请求可以使用 fetch</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myImage = <span class="built_in">document</span>.querySelector(<span class="string">'img'</span>)</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">'test.jpg'</span>).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;<span class="keyword">return</span> response.blob()&#125;).then(<span class="function">(<span class="params">myBlob</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> objURL = URL.createObjectURL(myBlob)</span><br><span class="line">    myImage.src = objURL</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h1 id="Promise-总结"><a href="#Promise-总结" class="headerlink" title="Promise 总结"></a>Promise 总结</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
-<li>Promise 只有单一的状态, 你可以随时读取状态固定下来的结果</li>
-<li>不可被改变</li>
+<h1 id="创建-canvas"><a href="#创建-canvas" class="headerlink" title="创建 canvas"></a>创建 canvas</h1><p>使用 canvas 首先需要创建 canvas 标签, 并设置标签属性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas width=<span class="string">"600"</span> height=<span class="string">"600"</span>&gt;</span><br><span class="line">  你的浏览器不支持此功能, 请升级你的浏览器</span><br><span class="line">&lt;<span class="regexp">/canvas&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>在 canvas 上绘图, 首先需要得到 canvas 的 2d 上下文<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>)</span><br><span class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>接下来就可以进行绘制了.</p>
+<h2 id="绘制直线"><a href="#绘制直线" class="headerlink" title="绘制直线"></a>绘制直线</h2><p>首先我们设置直线的路径, 先移动到坐标(100, 100), 绘制到(200, 100), 接着再绘制到(100, 200)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.moveTo(<span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">ctx.lineTo(<span class="number">200</span>, <span class="number">100</span>)</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">200</span>)</span><br></pre></td></tr></table></figure></p>
+<p>以上只是绘制了路径, 这里的路径实际上就是状态, 真正绘制则需要填充路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.stroke()</span><br></pre></td></tr></table></figure></p>
+<h2 id="绘制多边形"><a href="#绘制多边形" class="headerlink" title="绘制多边形"></a>绘制多边形</h2><p>每一次lineTo都会产生一个路径, 如果我们需要画一个闭合的多边形, 可以使用ctx.closePath() 将起点和终点连接起来<br>比如绘制一个三角形<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctx.moveTo(<span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">ctx.lineTo(<span class="number">200</span>, <span class="number">100</span>)</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">200</span>)</span><br><span class="line">ctx.closePath()</span><br><span class="line">ctx.stroke()</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>需要注意的是 只有 IE9+ 的浏览器版本才支持 canvas</p>
+</blockquote>
+<h1 id="描边与填充"><a href="#描边与填充" class="headerlink" title="描边与填充"></a>描边与填充</h1><h2 id="描边"><a href="#描边" class="headerlink" title="描边"></a>描边</h2><p>描边表示绘制直线, 在绘制之前可以设置以下属性指定绘制的样式</p>
+<ul>
+<li>lineWidth(线宽, 以点为中线)</li>
+<li>strokeStyle(颜色)</li>
+</ul>
+<h2 id="填充"><a href="#填充" class="headerlink" title="填充"></a>填充</h2><p>填充表示用指定颜色(默认黑色)填充闭合路径, 它绘制的是一个闭合的区域, 在填充之前可以设置填充的样式</p>
+<ul>
+<li>fillStyle(颜色)<blockquote>
+<p>对于设置了 lineWidth 属性的描边, 如果同时设置了填充, 那么填充会将 lineWidth 的一半也进行覆盖, 比如 lineWidth 为 4 的描边, 填充时其路径内部的2像素将被填充覆盖掉</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="beginPath-状态"><a href="#beginPath-状态" class="headerlink" title="beginPath (状态)"></a>beginPath (状态)</h2><p>canvas 是基于状态的, beginPath 表示新的状态开始, 上一次绘制状态结束, 同时当前状态可以继承上一次状态所设置的样式, 比如下面的例子中, 我们在第一个状态中绘制一条红色的直线, 然后在第二个状态中绘制一条绿色的直线<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ctx.beginPath()</span><br><span class="line">ctx.strokeStyle = <span class="string">'red'</span></span><br><span class="line">ctx.moveTo(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">ctx.stroke()</span><br><span class="line"></span><br><span class="line">ctx.beginPath()</span><br><span class="line">ctx.strokeStyle = <span class="string">'green'</span></span><br><span class="line">ctx.moveTo(<span class="number">200</span>, <span class="number">200</span>)</span><br><span class="line">ctx.lineTo(<span class="number">300</span>, <span class="number">300</span>)</span><br><span class="line">ctx.stroke()</span><br></pre></td></tr></table></figure></p>
+<h2 id="绘制矩形"><a href="#绘制矩形" class="headerlink" title="绘制矩形"></a>绘制矩形</h2><p>ctx.rect(x, y, w, h) 可以绘制一个矩形路径, 然后可以进行描边或填充, 但也可以使用直接填充矩形或直接描边矩形<br>strokeRect(x, y, w, h) 是描边矩形, fillRect(x, y, w, h) 是填充矩形, x, y 表示矩形左上角的坐标, w, h 分别表示宽度和高度<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctx.rect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">ctx.stroke()</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">ctx.strokeRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br></pre></td></tr></table></figure></p>
+<p>绘制矩形后, 可以使用 clearRect(x, y, w, h) 清除矩形, 参数分别为起始 x 坐标, 起始 y 坐标, 矩形区域的宽度w, 矩形区域的高度h</p>
+<h2 id="弧与坐标角度"><a href="#弧与坐标角度" class="headerlink" title="弧与坐标角度"></a>弧与坐标角度</h2><p>canvas 坐标默认以 x 轴正向为 0 度, 顺时针方向为正角, 逆时针方向为负角.<br>绘制弧使用 ctx.arc(圆心x坐标, 圆心y坐标, 半径, 开始弧度, 结束弧度, 是否逆时针绘制[默认为false]), 它的角度参数以弧度为单位, 弧度和角度有一个转换关系 <code>1arc = deg * Math.PI / 180</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctx.moveTo(<span class="number">300</span>, <span class="number">300</span>)</span><br><span class="line">ctx.arc(<span class="number">300</span>, <span class="number">300</span>, <span class="number">100</span>, <span class="number">0</span>, <span class="number">30</span> * <span class="built_in">Math</span>.PI / <span class="number">180</span>, <span class="literal">true</span>)</span><br><span class="line">ctx.closePath()</span><br><span class="line">ctx.stroke() <span class="comment">// 绘制</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="绘制文字"><a href="#绘制文字" class="headerlink" title="绘制文字"></a>绘制文字</h1><p>绘制之前可以对文字设置如下属性:</p>
+<ol>
+<li>ctx.font(设置字体)</li>
+<li>ctx.textBaseline(设置文字和哪条线对齐)</li>
+<li>ctx.textAlign(设置字体的对齐方式)</li>
+<li>ctx.direction(用来描述绘制文本方向的属性, ltr 为从左到右, rtl 为从右到左)<br>然后可以使用 fillText(‘content’, x, y), strokeText(‘content’, x, y) 进行填充或绘制, 其中(x, y)表示文字将被绘制的坐标位置</li>
 </ol>
-<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ol>
-<li>在创建的时候, 立即执行, 在某些场景下不合理</li>
-<li>不可被取消, 有时候用户点击某个组件需要发送某些数据, 但如果在数据返回之前用户点击了另外的组件触发了另外的事件, 这种情况下我们可能想取消</li>
-<li>只会 resolve 或 reject 一次</li>
-</ol>
+<blockquote>
+<p>ctx.measureText(文本内容) 可以测量文本的宽度, 返回包含指定文本宽度的对象</p>
+</blockquote>
+<h1 id="绘制图片"><a href="#绘制图片" class="headerlink" title="绘制图片"></a>绘制图片</h1><p>绘制图片使用 drawImage(img, sx, sy, sw, sh, x, y, w, h) 方法, 参数分别是 图片对象, 裁剪的 x 坐标, 裁剪的 y 坐标, 裁剪图片的宽度, 裁剪图片的高度, x 坐标, y 坐标, 图片缩放宽度, 图片缩放高度</p>
+<h1 id="绘制帧动画"><a href="#绘制帧动画" class="headerlink" title="绘制帧动画"></a>绘制帧动画</h1><p>序列帧实际上就是用定时器不断地使用 drawImage 去绘制, 每一次都可以通过改变裁剪区域 sx, sy 坐标的值实现动画效果</p>
 
       
     </div>
@@ -424,7 +431,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/异步/" rel="tag"><i class="fa fa-tags" aria-hidden="true"></i> 异步</a>
+            <a href="/tags/canvas/" rel="tag"><i class="fa fa-tags" aria-hidden="true"></i> canvas</a>
+          
+            <a href="/tags/数据可视化/" rel="tag"><i class="fa fa-tags" aria-hidden="true"></i> 数据可视化</a>
           
         </div>
       
@@ -433,8 +442,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/14/React-js/" rel="next" title="ReactJs">
-                <i class="fa fa-chevron-left"></i> ReactJs
+              <a href="/2018/06/28/ramda/" rel="next" title="ramda 之函数式编程">
+                <i class="fa fa-chevron-left"></i> ramda 之函数式编程
               </a>
             
           </div>
@@ -442,10 +451,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/28/js-pattern/" rel="prev" title="设计模式之原型模式">
-                设计模式之原型模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -591,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#如何创建-Promise"><span class="nav-number">1.</span> <span class="nav-text">如何创建 Promise</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-Promise"><span class="nav-number">2.</span> <span class="nav-text">使用 Promise</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#错误处理"><span class="nav-number">3.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一般错误处理"><span class="nav-number">3.1.</span> <span class="nav-text">一般错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#catch-方式的错误处理"><span class="nav-number">3.2.</span> <span class="nav-text">catch 方式的错误处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise-all"><span class="nav-number">4.</span> <span class="nav-text">Promise.all</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Promise-all"><span class="nav-number">4.1.</span> <span class="nav-text">使用 Promise.all</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise-race"><span class="nav-number">5.</span> <span class="nav-text">Promise.race</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fetch"><span class="nav-number">6.</span> <span class="nav-text">fetch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise-总结"><span class="nav-number">7.</span> <span class="nav-text">Promise 总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">7.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-number">7.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是-canvas"><span class="nav-number">1.</span> <span class="nav-text">什么是 canvas</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建-canvas"><span class="nav-number">2.</span> <span class="nav-text">创建 canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制直线"><span class="nav-number">2.1.</span> <span class="nav-text">绘制直线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制多边形"><span class="nav-number">2.2.</span> <span class="nav-text">绘制多边形</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#描边与填充"><span class="nav-number">3.</span> <span class="nav-text">描边与填充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#描边"><span class="nav-number">3.1.</span> <span class="nav-text">描边</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#填充"><span class="nav-number">3.2.</span> <span class="nav-text">填充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beginPath-状态"><span class="nav-number">3.3.</span> <span class="nav-text">beginPath (状态)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制矩形"><span class="nav-number">3.4.</span> <span class="nav-text">绘制矩形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弧与坐标角度"><span class="nav-number">3.5.</span> <span class="nav-text">弧与坐标角度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绘制文字"><span class="nav-number">4.</span> <span class="nav-text">绘制文字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绘制图片"><span class="nav-number">5.</span> <span class="nav-text">绘制图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绘制帧动画"><span class="nav-number">6.</span> <span class="nav-text">绘制帧动画</span></a></li></ol></div>
             
 
           </div>
