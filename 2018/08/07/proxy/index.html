@@ -72,7 +72,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="canvas,数据可视化," />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="什么是 canvascanvas 是 HTML5 提供的新 API, 它是一个矩形区域的画布, 通过 API 我们可以在canvas上进行绘制, 通过绘制来控制每一个像素的显示.">
-<meta name="keywords" content="canvas,数据可视化">
+<meta name="description" content="代理, 可以称为代理模式, 它是一种编程模式, 与装饰器有点像, 但又不完全一样, 下面就 proxy 与 decorator 的联系与区别展开">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="canvas 入门">
-<meta property="og:url" content="http://yoursite.com/2018/07/04/canvas/index.html">
+<meta property="og:title" content="javascript中的代理(decorator)">
+<meta property="og:url" content="http://yoursite.com/2018/08/07/proxy/index.html">
 <meta property="og:site_name" content="nfwyst">
-<meta property="og:description" content="什么是 canvascanvas 是 HTML5 提供的新 API, 它是一个矩形区域的画布, 通过 API 我们可以在canvas上进行绘制, 通过绘制来控制每一个像素的显示.">
+<meta property="og:description" content="代理, 可以称为代理模式, 它是一种编程模式, 与装饰器有点像, 但又不完全一样, 下面就 proxy 与 decorator 的联系与区别展开">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-07T09:03:57.584Z">
+<meta property="og:updated_time" content="2018-08-07T12:24:19.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas 入门">
-<meta name="twitter:description" content="什么是 canvascanvas 是 HTML5 提供的新 API, 它是一个矩形区域的画布, 通过 API 我们可以在canvas上进行绘制, 通过绘制来控制每一个像素的显示.">
+<meta name="twitter:title" content="javascript中的代理(decorator)">
+<meta name="twitter:description" content="代理, 可以称为代理模式, 它是一种编程模式, 与装饰器有点像, 但又不完全一样, 下面就 proxy 与 decorator 的联系与区别展开">
 
 
 
@@ -127,14 +127,14 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/04/canvas/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/07/proxy/"/>
 
 
 
 <link href='http://cdn.webfont.youziku.com/webfonts/nomal/119666/30639/5b21077cf629d911b4b0e3e5.css' rel='stylesheet' type='text/css' />
 
 
-  <title> canvas 入门 | nfwyst </title>
+  <title> javascript中的代理(decorator) | nfwyst </title>
 </head>
 
 <body id="vive" itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +278,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/04/canvas/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/07/proxy/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="nfwyst">
@@ -302,7 +302,7 @@
             
             
               
-                canvas 入门
+                javascript中的代理(decorator)
               
             
           </h1>
@@ -315,8 +315,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-04T22:26:00+08:00">
-                2018-07-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-07T19:24:31+08:00">
+                2018-08-07
               </time>
             
 
@@ -334,8 +334,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
                   </a>
                 </span>
 
@@ -369,45 +369,19 @@
       
 
       
-        <h1 id="什么是-canvas"><a href="#什么是-canvas" class="headerlink" title="什么是 canvas"></a>什么是 canvas</h1><p>canvas 是 HTML5 提供的新 API, 它是一个矩形区域的画布, 通过 API 我们可以在canvas上进行绘制, 通过绘制来控制每一个像素的显示.</p>
+        <p>代理, 可以称为代理模式, 它是一种编程模式, 与装饰器有点像, 但又不完全一样, 下面就 proxy 与 decorator 的联系与区别展开</p>
 <a id="more"></a>
-<h1 id="创建-canvas"><a href="#创建-canvas" class="headerlink" title="创建 canvas"></a>创建 canvas</h1><p>使用 canvas 首先需要创建 canvas 标签, 并设置标签属性<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas width=<span class="string">"600"</span> height=<span class="string">"600"</span>&gt;</span><br><span class="line">  你的浏览器不支持此功能, 请升级你的浏览器</span><br><span class="line">&lt;<span class="regexp">/canvas&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>在 canvas 上绘图, 首先需要得到 canvas 的 2d 上下文<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>)</span><br><span class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>)</span><br></pre></td></tr></table></figure></p>
-<p>接下来就可以进行绘制了.</p>
-<h2 id="绘制直线"><a href="#绘制直线" class="headerlink" title="绘制直线"></a>绘制直线</h2><p>首先我们设置直线的路径, 先移动到坐标(100, 100), 绘制到(200, 100), 接着再绘制到(100, 200)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctx.moveTo(<span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">ctx.lineTo(<span class="number">200</span>, <span class="number">100</span>)</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">200</span>)</span><br></pre></td></tr></table></figure></p>
-<p>以上只是绘制了路径, 这里的路径实际上就是状态, 真正绘制则需要填充路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.stroke()</span><br></pre></td></tr></table></figure></p>
-<h2 id="绘制多边形"><a href="#绘制多边形" class="headerlink" title="绘制多边形"></a>绘制多边形</h2><p>每一次lineTo都会产生一个路径, 如果我们需要画一个闭合的多边形, 可以使用ctx.closePath() 将起点和终点连接起来<br>比如绘制一个三角形<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctx.moveTo(<span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">ctx.lineTo(<span class="number">200</span>, <span class="number">100</span>)</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">200</span>)</span><br><span class="line">ctx.closePath()</span><br><span class="line">ctx.stroke()</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>需要注意的是 只有 IE9+ 的浏览器版本才支持 canvas</p>
-</blockquote>
-<h1 id="描边与填充"><a href="#描边与填充" class="headerlink" title="描边与填充"></a>描边与填充</h1><h2 id="描边"><a href="#描边" class="headerlink" title="描边"></a>描边</h2><p>描边表示绘制直线, 在绘制之前可以设置以下属性指定绘制的样式</p>
-<ul>
-<li>lineWidth(线宽, 以点为中线)</li>
-<li>strokeStyle(颜色)</li>
-</ul>
-<h2 id="填充"><a href="#填充" class="headerlink" title="填充"></a>填充</h2><p>填充表示用指定颜色(默认黑色)填充闭合路径, 它绘制的是一个闭合的区域, 在填充之前可以设置填充的样式</p>
-<ul>
-<li>fillStyle(颜色)<blockquote>
-<p>对于设置了 lineWidth 属性的描边, 如果同时设置了填充, 那么填充会将 lineWidth 的一半也进行覆盖, 比如 lineWidth 为 4 的描边, 填充时其路径内部的2像素将被填充覆盖掉</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="beginPath-状态"><a href="#beginPath-状态" class="headerlink" title="beginPath (状态)"></a>beginPath (状态)</h2><p>canvas 是基于状态的, beginPath 表示新的状态开始, 上一次绘制状态结束, 同时当前状态可以继承上一次状态所设置的样式, 比如下面的例子中, 我们在第一个状态中绘制一条红色的直线, 然后在第二个状态中绘制一条绿色的直线<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ctx.beginPath()</span><br><span class="line">ctx.strokeStyle = <span class="string">'red'</span></span><br><span class="line">ctx.moveTo(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">ctx.lineTo(<span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">ctx.stroke()</span><br><span class="line"></span><br><span class="line">ctx.beginPath()</span><br><span class="line">ctx.strokeStyle = <span class="string">'green'</span></span><br><span class="line">ctx.moveTo(<span class="number">200</span>, <span class="number">200</span>)</span><br><span class="line">ctx.lineTo(<span class="number">300</span>, <span class="number">300</span>)</span><br><span class="line">ctx.stroke()</span><br></pre></td></tr></table></figure></p>
-<h2 id="绘制矩形"><a href="#绘制矩形" class="headerlink" title="绘制矩形"></a>绘制矩形</h2><p>ctx.rect(x, y, w, h) 可以绘制一个矩形路径, 然后可以进行描边或填充, 但也可以使用直接填充矩形或直接描边矩形<br>strokeRect(x, y, w, h) 是描边矩形, fillRect(x, y, w, h) 是填充矩形, x, y 表示矩形左上角的坐标, w, h 分别表示宽度和高度<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctx.rect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">ctx.stroke()</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">ctx.strokeRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br></pre></td></tr></table></figure></p>
-<p>绘制矩形后, 可以使用 clearRect(x, y, w, h) 清除矩形, 参数分别为起始 x 坐标, 起始 y 坐标, 矩形区域的宽度w, 矩形区域的高度h</p>
-<h2 id="弧与坐标角度"><a href="#弧与坐标角度" class="headerlink" title="弧与坐标角度"></a>弧与坐标角度</h2><p>canvas 坐标默认以 x 轴正向为 0 度, 顺时针方向为正角, 逆时针方向为负角.<br>绘制弧使用 ctx.arc(圆心x坐标, 圆心y坐标, 半径, 开始弧度, 结束弧度, 是否逆时针绘制[默认为false]), 它的角度参数以弧度为单位, 弧度和角度有一个转换关系 <code>1arc = deg * Math.PI / 180</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctx.moveTo(<span class="number">300</span>, <span class="number">300</span>)</span><br><span class="line">ctx.arc(<span class="number">300</span>, <span class="number">300</span>, <span class="number">100</span>, <span class="number">0</span>, <span class="number">30</span> * <span class="built_in">Math</span>.PI / <span class="number">180</span>, <span class="literal">true</span>)</span><br><span class="line">ctx.closePath()</span><br><span class="line">ctx.stroke() <span class="comment">// 绘制</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="绘制文字"><a href="#绘制文字" class="headerlink" title="绘制文字"></a>绘制文字</h1><p>绘制之前可以对文字设置如下属性:</p>
-<ol>
-<li>ctx.font(设置字体)</li>
-<li>ctx.textBaseline(设置文字和哪条线对齐)</li>
-<li>ctx.textAlign(设置字体的对齐方式)</li>
-<li>ctx.direction(用来描述绘制文本方向的属性, ltr 为从左到右, rtl 为从右到左)<br>然后可以使用 fillText(‘content’, x, y), strokeText(‘content’, x, y) 进行填充或绘制, 其中(x, y)表示文字将被绘制的坐标位置</li>
-</ol>
-<blockquote>
-<p>ctx.measureText(文本内容) 可以测量文本的宽度, 返回包含指定文本宽度的对象</p>
-</blockquote>
-<h1 id="绘制图片"><a href="#绘制图片" class="headerlink" title="绘制图片"></a>绘制图片</h1><p>绘制图片使用 drawImage(img, sx, sy, sw, sh, x, y, w, h) 方法, 参数分别是 图片对象, 裁剪的 x 坐标, 裁剪的 y 坐标, 裁剪图片的宽度, 裁剪图片的高度, x 坐标, y 坐标, 图片缩放宽度, 图片缩放高度</p>
-<h1 id="绘制帧动画"><a href="#绘制帧动画" class="headerlink" title="绘制帧动画"></a>绘制帧动画</h1><p>序列帧实际上就是用定时器不断地使用 drawImage 去绘制, 每一次都可以通过改变裁剪区域 sx, sy 坐标的值实现动画效果</p>
+<h1 id="什么是代理"><a href="#什么是代理" class="headerlink" title="什么是代理"></a>什么是代理</h1><p>代理就是一个类(模块)将自己职责之外的一些功能委托给另外一个模块去维护和管理, 这个管理者就是我们所谓的代理,同时代理并不改变原始的类(模块), javascript 原生提供 Proxy 构造函数，用来生成 Proxy 实例.</p>
+<h2 id="代理的实现"><a href="#代理的实现" class="headerlink" title="代理的实现"></a>代理的实现</h2><p>Proxy 构造函数的第一个参数是被代理的对象, 第二个参数是一个配置对象, 配置对象中的函数将在对被代理对象进行操作时对操作进行拦截, 在拦截期间可以进行一些功能的处理, 最后可以通过 Reflect 中的同名方法获取默认行为, 下面是一个简单的对一个对象的 log 函数进行代理的例子, 代码如下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal3</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  log() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`my name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> pro = <span class="keyword">new</span> <span class="built_in">Proxy</span>(<span class="keyword">new</span> Animal3(<span class="string">'panda'</span>), &#123;</span><br><span class="line">  get(target, property) &#123;</span><br><span class="line">    <span class="keyword">if</span> (property <span class="keyword">in</span> target) &#123;</span><br><span class="line">      <span class="keyword">if</span> (property === <span class="string">'log'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'do something here'</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Reflect</span>.get(target, property).call(target);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'no such property name'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">pro.log();</span><br></pre></td></tr></table></figure>
+<h1 id="什么是装饰器"><a href="#什么是装饰器" class="headerlink" title="什么是装饰器"></a>什么是装饰器</h1><p>装饰器是通过装饰函数给一个类(模块, 方法)本身添加一些相关的功能, 这些功能属于它们自己的职责范围, 并且原始的类(模块)会被装饰后的类所替代, 与其他语言类似, javascript 提供 <code>@</code> 符号来表示装饰器语法.</p>
+<h2 id="3种装饰模式"><a href="#3种装饰模式" class="headerlink" title="3种装饰模式"></a>3种装饰模式</h2><h3 id="普通的装饰模式"><a href="#普通的装饰模式" class="headerlink" title="普通的装饰模式"></a>普通的装饰模式</h3><p>普通装饰模式通过在内部维护一个原始对象来拓展一些功能, 代码如下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxy</span>(<span class="params">client</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">      <span class="keyword">this</span>.client = <span class="keyword">new</span> client(name);</span><br><span class="line">    &#125;</span><br><span class="line">    log() &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'you want to access it?'</span>);</span><br><span class="line">      <span class="keyword">this</span>.client.log();</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'ok your visit finished!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@proxy</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  log() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`my name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Animal(<span class="string">'dog'</span>).log();</span><br></pre></td></tr></table></figure>
+<h3 id="反向继承的装饰模式"><a href="#反向继承的装饰模式" class="headerlink" title="反向继承的装饰模式"></a>反向继承的装饰模式</h3><p>这种装饰方法通过继承原始类同时重写同名方法来拓展功能, 代码如下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxy1</span>(<span class="params">client</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">client</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">      <span class="keyword">super</span>(name);</span><br><span class="line">    &#125;</span><br><span class="line">    log() &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'you want to access it?'</span>);</span><br><span class="line">      <span class="keyword">super</span>.log();</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'ok your visit finished'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@proxy1</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal1</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  log() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`my name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Animal1(<span class="string">'Cute kitten'</span>).log();</span><br></pre></td></tr></table></figure>
+<h3 id="属性代理的装饰模式"><a href="#属性代理的装饰模式" class="headerlink" title="属性代理的装饰模式"></a>属性代理的装饰模式</h3><p>属性代理的装饰模式在内部维护一个状态, 然后在需要的时候将状态传给原始对象使用, 代码如下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxy2</span>(<span class="params">client</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">      <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    log() &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'you want to access it?'</span>);</span><br><span class="line">      <span class="keyword">new</span> client(<span class="keyword">this</span>.name).log();</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'ok your visit finished'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@proxy2</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal2</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  log() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`my name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Animal2(<span class="string">'big insect'</span>).log());</span><br></pre></td></tr></table></figure>
+<h1 id="代理与装饰的异同点"><a href="#代理与装饰的异同点" class="headerlink" title="代理与装饰的异同点"></a>代理与装饰的异同点</h1><p>首先, 它们都是对一个类(模块)进行功能上的拓展, 不同的是代理在外部对类(模块)进行拓展而类(模块)本身不改变, 装饰是对原始类(模块)进行拓展, 这会改变原来的类(模块), 最重要的不同是: 一般情况下代理只需要代理一次, 我们使用代理可能更多的是对类(模块)的操作访问进行控制, 而装饰器可以多次使用, 并且每次都使用不同的装饰器来对类(模块)进行功能上的拓展.</p>
 
       
     </div>
@@ -431,9 +405,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/canvas/" rel="tag"><i class="fa fa-tags" aria-hidden="true"></i> canvas</a>
-          
-            <a href="/tags/数据可视化/" rel="tag"><i class="fa fa-tags" aria-hidden="true"></i> 数据可视化</a>
+            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tags" aria-hidden="true"></i> javascript</a>
           
         </div>
       
@@ -442,8 +414,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/28/ramda/" rel="next" title="ramda 之函数式编程">
-                <i class="fa fa-chevron-left"></i> ramda 之函数式编程
+              <a href="/2018/08/01/node-addon/" rel="next" title="在electron中使用c/c++拓展">
+                <i class="fa fa-chevron-left"></i> 在electron中使用c/c++拓展
               </a>
             
           </div>
@@ -451,10 +423,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/01/node-addon/" rel="prev" title="在electron中使用c/c++拓展">
-                在electron中使用c/c++拓展 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -600,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是-canvas"><span class="nav-number">1.</span> <span class="nav-text">什么是 canvas</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建-canvas"><span class="nav-number">2.</span> <span class="nav-text">创建 canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制直线"><span class="nav-number">2.1.</span> <span class="nav-text">绘制直线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制多边形"><span class="nav-number">2.2.</span> <span class="nav-text">绘制多边形</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#描边与填充"><span class="nav-number">3.</span> <span class="nav-text">描边与填充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#描边"><span class="nav-number">3.1.</span> <span class="nav-text">描边</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#填充"><span class="nav-number">3.2.</span> <span class="nav-text">填充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beginPath-状态"><span class="nav-number">3.3.</span> <span class="nav-text">beginPath (状态)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制矩形"><span class="nav-number">3.4.</span> <span class="nav-text">绘制矩形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弧与坐标角度"><span class="nav-number">3.5.</span> <span class="nav-text">弧与坐标角度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绘制文字"><span class="nav-number">4.</span> <span class="nav-text">绘制文字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绘制图片"><span class="nav-number">5.</span> <span class="nav-text">绘制图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绘制帧动画"><span class="nav-number">6.</span> <span class="nav-text">绘制帧动画</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是代理"><span class="nav-number">1.</span> <span class="nav-text">什么是代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代理的实现"><span class="nav-number">1.1.</span> <span class="nav-text">代理的实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是装饰器"><span class="nav-number">2.</span> <span class="nav-text">什么是装饰器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3种装饰模式"><span class="nav-number">2.1.</span> <span class="nav-text">3种装饰模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通的装饰模式"><span class="nav-number">2.1.1.</span> <span class="nav-text">普通的装饰模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向继承的装饰模式"><span class="nav-number">2.1.2.</span> <span class="nav-text">反向继承的装饰模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性代理的装饰模式"><span class="nav-number">2.1.3.</span> <span class="nav-text">属性代理的装饰模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代理与装饰的异同点"><span class="nav-number">3.</span> <span class="nav-text">代理与装饰的异同点</span></a></li></ol></div>
             
 
           </div>
