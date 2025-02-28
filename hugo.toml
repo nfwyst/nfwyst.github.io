@@ -1,6 +1,6 @@
-baseURL = 'https://nfwyst.js.org'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = "https://nfwyst.js.org"
+languageCode = "en-us"
+title = "nfwyst's blog"
 theme = "re-terminal"
 [params]
 themeColor = "blue"
