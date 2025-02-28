@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Create Blog With Hugo :: nfwyst&#39;s blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="在本文中我们将使用 hugo 创建一个可以存储文章元数据的静态博客站点" />
+<meta name="keywords" content="golang, hugo" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://nfwyst.js.org/posts/create-blog-with-hugo/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://nfwyst.js.org/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://nfwyst.js.org/img/theme-colors/blue.png">
+  <link rel="apple-touch-icon" href="https://nfwyst.js.org/img/theme-colors/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Create Blog With Hugo">
+<meta property="og:description" content="在本文中我们将使用 hugo 创建一个可以存储文章元数据的静态博客站点" />
+<meta property="og:url" content="https://nfwyst.js.org/posts/create-blog-with-hugo/" />
+<meta property="og:site_name" content="nfwyst&#39;s blog" />
+
+  
+  
+  <meta property="og:image" content="https://nfwyst.js.org/img/hugo.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-02-28 17:07:27 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</head>
+<body class="blue">
+
+
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="https://nfwyst.js.org/">
+  <div class="logo">
+    A shortcut is the longest distance between two points
+  </div>
+</a>
+
+    </div>
+    
+    
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://nfwyst.js.org/posts/create-blog-with-hugo/">Create Blog With Hugo</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2025-02-28</time><span class="post-author">nfwyst</span>
+    
+</div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://nfwyst.js.org/tags/hugo/">hugo</a>&nbsp;
+      
+      #<a href="https://nfwyst.js.org/tags/golang/">golang</a>&nbsp;
+      
+    </span>
+  
+  
+    
+    <img src="https://nfwyst.js.org/img/hugo.png"
+      class="post-cover"
+      alt=" "
+      title="Cover Image" />
+  
+
+
+
+  
+
+  <div class="post-content"><div>
+        <h2 id="使用-hugo-创建-blog">使用 hugo 创建 blog<a href="#使用-hugo-创建-blog" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="hugo-简介">Hugo 简介<a href="#hugo-简介" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Hugo 是一个基于 Go 语言的静态网站生成器，速度快、免费且安全, 且在性能基准测试中，Hugo 通常优于其他框架</p>
+<h3 id="创建-hugo-博客的步骤">创建 Hugo 博客的步骤<a href="#创建-hugo-博客的步骤" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h4 id="安装-hugo">安装 Hugo<a href="#安装-hugo" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<p>在 mac 上可以使用 <code>brew install hugo</code> 安装 hugo 的扩展版本. 相比标准版, 扩展版本提供更丰富的功能. 其他平台可以访问 <a href="https://gohugo.io/installation/">installation</a> 根据说明安装</p>
+<h4 id="创建-hugo-站点">创建 Hugo 站点<a href="#创建-hugo-站点" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<p>通过命令行 <code>hugo new site</code> 后跟文件夹路径创建新站点</p>
+<h4 id="为-hugo-站点添加主题">为 Hugo 站点添加主题<a href="#为-hugo-站点添加主题" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<p>可以通过命令行 <code>hugo new theme</code> 后跟主题名称创建新的主题, 也可以访问 <a href="https://themes.gohugo.io">themes</a> 安装第三方提供的主题, 例如: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal">terminal</a>
+第三方主题一般都可以作为 git 子模块安装, 例如 terminal 可以通过命令行 <code>git submodule add -f https://github.com/mirus-ua/hugo-theme-re-terminal.git themes/re-terminal</code> 安装, 安装之前运行命令行 <code>git init</code> 确保后续操作可以执行</p>
+<p>安装好主题之后, 需要在 hugo.toml 文件中新增字段 <code>theme</code> 为themes目录下主题的目录名</p>
+<h4 id="创建文章">创建文章<a href="#创建文章" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<p>使用 <code>hugo new posts/</code> 后跟文件名称, 创建新的 markdown 文件, 一个文件对应一篇 post. 创建的文件位于 <code>content</code> 目录下, 以 markdown 格式编写, 不同主题生成的文件头部有差异, 一般都有 <code>date</code>, <code>title</code>, <code>tags</code> 三个字段分别表示文章创建日期, 标题, 标签, 其余均为特定于主题的头部拓展字段.</p>
+<h4 id="插入图片">插入图片<a href="#插入图片" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<p>图片文件需要放在目录 <code>/static/img/</code> 下, 使用时通过插入片段 <code>![alt text](/img/name.png)</code> 来使用, name 表示真实的图片名称</p>
+<h4 id="预览和发布">预览和发布<a href="#预览和发布" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<p>通过 <code>hugo server</code> 命令在本地预览网站，完成后可以部署到互联网</p>
+
+      </div></div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

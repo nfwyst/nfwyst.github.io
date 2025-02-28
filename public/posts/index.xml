@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on nfwyst&#39;s blog</title>
+    <link>https://nfwyst.js.org/posts/</link>
+    <description>Recent content in Posts on nfwyst&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 28 Feb 2025 17:07:27 +0800</lastBuildDate><atom:link href="https://nfwyst.js.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create Blog With Hugo</title>
+      <link>https://nfwyst.js.org/posts/create-blog-with-hugo/</link>
+      <pubDate>Fri, 28 Feb 2025 17:07:27 +0800</pubDate>
+      
+      <guid>https://nfwyst.js.org/posts/create-blog-with-hugo/</guid>
+      <description>&lt;h2 id=&#34;使用-hugo-创建-blog&#34;&gt;使用 hugo 创建 blog&lt;/h2&gt;
+&lt;h3 id=&#34;hugo-简介&#34;&gt;Hugo 简介&lt;/h3&gt;
+&lt;p&gt;Hugo 是一个基于 Go 语言的静态网站生成器，速度快、免费且安全, 且在性能基准测试中，Hugo 通常优于其他框架&lt;/p&gt;
+&lt;h3 id=&#34;创建-hugo-博客的步骤&#34;&gt;创建 Hugo 博客的步骤&lt;/h3&gt;
+&lt;h4 id=&#34;安装-hugo&#34;&gt;安装 Hugo&lt;/h4&gt;
+&lt;p&gt;在 mac 上可以使用 &lt;code&gt;brew install hugo&lt;/code&gt; 安装 hugo 的扩展版本. 相比标准版, 扩展版本提供更丰富的功能. 其他平台可以访问 &lt;a href=&#34;https://gohugo.io/installation/&#34;&gt;installation&lt;/a&gt; 根据说明安装&lt;/p&gt;
+&lt;h4 id=&#34;创建-hugo-站点&#34;&gt;创建 Hugo 站点&lt;/h4&gt;
+&lt;p&gt;通过命令行 &lt;code&gt;hugo new site&lt;/code&gt; 后跟文件夹路径创建新站点&lt;/p&gt;
+&lt;h4 id=&#34;为-hugo-站点添加主题&#34;&gt;为 Hugo 站点添加主题&lt;/h4&gt;
+&lt;p&gt;可以通过命令行 &lt;code&gt;hugo new theme&lt;/code&gt; 后跟主题名称创建新的主题, 也可以访问 &lt;a href=&#34;https://themes.gohugo.io&#34;&gt;themes&lt;/a&gt; 安装第三方提供的主题, 例如: &lt;a href=&#34;https://github.com/mirus-ua/hugo-theme-re-terminal&#34;&gt;terminal&lt;/a&gt;
+第三方主题一般都可以作为 git 子模块安装, 例如 terminal 可以通过命令行 &lt;code&gt;git submodule add -f https://github.com/mirus-ua/hugo-theme-re-terminal.git themes/re-terminal&lt;/code&gt; 安装, 安装之前运行命令行 &lt;code&gt;git init&lt;/code&gt; 确保后续操作可以执行&lt;/p&gt;
+&lt;p&gt;安装好主题之后, 需要在 hugo.toml 文件中新增字段 &lt;code&gt;theme&lt;/code&gt; 为themes目录下主题的目录名&lt;/p&gt;</description>
+      <content>&lt;h2 id=&#34;使用-hugo-创建-blog&#34;&gt;使用 hugo 创建 blog&lt;/h2&gt;
+&lt;h3 id=&#34;hugo-简介&#34;&gt;Hugo 简介&lt;/h3&gt;
+&lt;p&gt;Hugo 是一个基于 Go 语言的静态网站生成器，速度快、免费且安全, 且在性能基准测试中，Hugo 通常优于其他框架&lt;/p&gt;
+&lt;h3 id=&#34;创建-hugo-博客的步骤&#34;&gt;创建 Hugo 博客的步骤&lt;/h3&gt;
+&lt;h4 id=&#34;安装-hugo&#34;&gt;安装 Hugo&lt;/h4&gt;
+&lt;p&gt;在 mac 上可以使用 &lt;code&gt;brew install hugo&lt;/code&gt; 安装 hugo 的扩展版本. 相比标准版, 扩展版本提供更丰富的功能. 其他平台可以访问 &lt;a href=&#34;https://gohugo.io/installation/&#34;&gt;installation&lt;/a&gt; 根据说明安装&lt;/p&gt;
+&lt;h4 id=&#34;创建-hugo-站点&#34;&gt;创建 Hugo 站点&lt;/h4&gt;
+&lt;p&gt;通过命令行 &lt;code&gt;hugo new site&lt;/code&gt; 后跟文件夹路径创建新站点&lt;/p&gt;
+&lt;h4 id=&#34;为-hugo-站点添加主题&#34;&gt;为 Hugo 站点添加主题&lt;/h4&gt;
+&lt;p&gt;可以通过命令行 &lt;code&gt;hugo new theme&lt;/code&gt; 后跟主题名称创建新的主题, 也可以访问 &lt;a href=&#34;https://themes.gohugo.io&#34;&gt;themes&lt;/a&gt; 安装第三方提供的主题, 例如: &lt;a href=&#34;https://github.com/mirus-ua/hugo-theme-re-terminal&#34;&gt;terminal&lt;/a&gt;
+第三方主题一般都可以作为 git 子模块安装, 例如 terminal 可以通过命令行 &lt;code&gt;git submodule add -f https://github.com/mirus-ua/hugo-theme-re-terminal.git themes/re-terminal&lt;/code&gt; 安装, 安装之前运行命令行 &lt;code&gt;git init&lt;/code&gt; 确保后续操作可以执行&lt;/p&gt;
+&lt;p&gt;安装好主题之后, 需要在 hugo.toml 文件中新增字段 &lt;code&gt;theme&lt;/code&gt; 为themes目录下主题的目录名&lt;/p&gt;
+&lt;h4 id=&#34;创建文章&#34;&gt;创建文章&lt;/h4&gt;
+&lt;p&gt;使用 &lt;code&gt;hugo new posts/&lt;/code&gt; 后跟文件名称, 创建新的 markdown 文件, 一个文件对应一篇 post. 创建的文件位于 &lt;code&gt;content&lt;/code&gt; 目录下, 以 markdown 格式编写, 不同主题生成的文件头部有差异, 一般都有 &lt;code&gt;date&lt;/code&gt;, &lt;code&gt;title&lt;/code&gt;, &lt;code&gt;tags&lt;/code&gt; 三个字段分别表示文章创建日期, 标题, 标签, 其余均为特定于主题的头部拓展字段.&lt;/p&gt;
+&lt;h4 id=&#34;插入图片&#34;&gt;插入图片&lt;/h4&gt;
+&lt;p&gt;图片文件需要放在目录 &lt;code&gt;/static/img/&lt;/code&gt; 下, 使用时通过插入片段 &lt;code&gt;![alt text](/img/name.png)&lt;/code&gt; 来使用, name 表示真实的图片名称&lt;/p&gt;
+&lt;h4 id=&#34;预览和发布&#34;&gt;预览和发布&lt;/h4&gt;
+&lt;p&gt;通过 &lt;code&gt;hugo server&lt;/code&gt; 命令在本地预览网站，完成后可以部署到互联网&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
