@@ -1,0 +1,11 @@
+baseURL = 'nfwyst.js.org'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = "re-terminal"
+[params]
+themeColor = "blue"
+[languages]
+[languages.en.params]
+title = "A shortcut is the longest distance between two points"
+[languages.en.params.logo]
+logoText = "A shortcut is the longest distance between two points"
