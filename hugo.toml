@@ -1,4 +1,4 @@
-baseURL = 'nfwyst.js.org'
+baseURL = 'https://nfwyst.js.org'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = "re-terminal"
