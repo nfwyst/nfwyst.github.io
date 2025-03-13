@@ -6,8 +6,8 @@ authorTwitter = "" #do not include @
 cover = ""
 coverCaption = ""
 tags = ["ts", "js"]
-keywords = ["ts", "js"]
-description = ""
+keywords = ["typescript", "javascript"]
+description = "微软宣布将 Typescript 编译器迁移到 Golang"
 showFullContent = false
 readingTime = false
 hideComments = false
@@ -39,6 +39,6 @@ TypeScript 是现代 Web 开发中最重要的项目之一，但其自身是用 
 
 尽管重构过程漫长，但 Microsoft 的这一决定被认为是选择了最适合的工具，而非盲目追随 Rust 或 Zig 等语言的潮流.
 
-## 6. 总结
+## 6. **总结**:
 
 Microsoft 决定将 TypeScript 编译器从 TypeScript 迁移到 Go 语言，以解决性能瓶颈和低级别优化问题.这一决定不仅提升了编译速度，还为开发者带来了更好的开发体验.尽管重构过程漫长，但这一举措是技术上的重大进步.
