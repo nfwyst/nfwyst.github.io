@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/bob/</loc>
+    <lastmod>2025-04-20T16:26:12+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/build/</loc>
+    <lastmod>2025-04-20T16:26:12+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/fix-ld-system-not-found/</loc>
+    <lastmod>2025-04-20T16:26:12+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-04-20T16:26:12+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-04-20T16:26:12+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-04-20T16:26:12+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/js/</loc>
+    <lastmod>2025-03-14T01:20:47+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ts/</loc>
+    <lastmod>2025-03-14T01:20:47+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/typescript-to-go/</loc>
+    <lastmod>2025-03-14T01:20:47+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/terminal/</loc>
+    <lastmod>2025-03-13T01:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/tmux/</loc>
+    <lastmod>2025-03-13T01:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/tmux-intro/</loc>
+    <lastmod>2025-03-13T01:00:00+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/create-blog-with-hugo/</loc>
     <lastmod>2025-02-28T17:07:27+08:00</lastmod>
   </url><url>
@@ -9,15 +45,6 @@
     <lastmod>2025-02-28T17:07:27+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/hugo/</loc>
-    <lastmod>2025-02-28T17:07:27+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-02-28T17:07:27+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-02-28T17:07:27+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-02-28T17:07:27+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>

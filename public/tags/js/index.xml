@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Js on nfwyst&#39;s blog</title>
+    <link>http://localhost:1313/tags/js/</link>
+    <description>Recent content in Js on nfwyst&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 14 Mar 2025 01:20:47 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Typescript to Go</title>
+      <link>http://localhost:1313/posts/typescript-to-go/</link>
+      <pubDate>Fri, 14 Mar 2025 01:20:47 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/typescript-to-go/</guid>
+      <description>&lt;h2 id=&#34;1-背景&#34;&gt;1. &lt;strong&gt;背景&lt;/strong&gt;：&lt;/h2&gt;
+&lt;p&gt;TypeScript 是现代 Web 开发中最重要的项目之一，但其自身是用 TypeScript 编写的，导致编译器缺乏对低级别优化的支持.&lt;/p&gt;
+&lt;h2 id=&#34;2-重构原因&#34;&gt;2. &lt;strong&gt;重构原因&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;TypeScript 编译器缺乏直接内存访问、原生多线程等低级别优化支持.&lt;/li&gt;
+&lt;li&gt;为了解决这些问题，Microsoft 决定将 TypeScript 编译器从 TypeScript 迁移到 Go 语言.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-选择-go-的原因&#34;&gt;3. &lt;strong&gt;选择 Go 的原因&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;性能提升&lt;/strong&gt;：使用 Go 后，编译器速度提升了 10 倍（例如，VS Code 编译时间从 70 秒减少到 7 秒）.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编译语言&lt;/strong&gt;：Go 是编译语言，可以编译为优化的机器代码，而 JavaScript 是解释型语言.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内存管理&lt;/strong&gt;：Go 使用垃圾回收机制，相比 C++ 或 Rust 更易于使用.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可移植性&lt;/strong&gt;：Microsoft 选择 Go 的主要原因是其可移植性，能够将 TypeScript 代码逐行转换为等效的 Go 代码，保留原有行为.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;4-影响&#34;&gt;4. &lt;strong&gt;影响&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;开发者将在大型项目中体验到显著的性能提升，尤其是在 VS Code 中.&lt;/li&gt;
+&lt;li&gt;新的编译器将在 TypeScript 7 中发布，预计需要数月甚至数年的时间才能完全实现.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5-未来展望&#34;&gt;5. &lt;strong&gt;未来展望&lt;/strong&gt;：&lt;/h2&gt;
+&lt;p&gt;尽管重构过程漫长，但 Microsoft 的这一决定被认为是选择了最适合的工具，而非盲目追随 Rust 或 Zig 等语言的潮流.&lt;/p&gt;</description>
+      <content>&lt;h2 id=&#34;1-背景&#34;&gt;1. &lt;strong&gt;背景&lt;/strong&gt;：&lt;/h2&gt;
+&lt;p&gt;TypeScript 是现代 Web 开发中最重要的项目之一，但其自身是用 TypeScript 编写的，导致编译器缺乏对低级别优化的支持.&lt;/p&gt;
+&lt;h2 id=&#34;2-重构原因&#34;&gt;2. &lt;strong&gt;重构原因&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;TypeScript 编译器缺乏直接内存访问、原生多线程等低级别优化支持.&lt;/li&gt;
+&lt;li&gt;为了解决这些问题，Microsoft 决定将 TypeScript 编译器从 TypeScript 迁移到 Go 语言.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-选择-go-的原因&#34;&gt;3. &lt;strong&gt;选择 Go 的原因&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;性能提升&lt;/strong&gt;：使用 Go 后，编译器速度提升了 10 倍（例如，VS Code 编译时间从 70 秒减少到 7 秒）.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编译语言&lt;/strong&gt;：Go 是编译语言，可以编译为优化的机器代码，而 JavaScript 是解释型语言.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内存管理&lt;/strong&gt;：Go 使用垃圾回收机制，相比 C++ 或 Rust 更易于使用.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可移植性&lt;/strong&gt;：Microsoft 选择 Go 的主要原因是其可移植性，能够将 TypeScript 代码逐行转换为等效的 Go 代码，保留原有行为.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;4-影响&#34;&gt;4. &lt;strong&gt;影响&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;开发者将在大型项目中体验到显著的性能提升，尤其是在 VS Code 中.&lt;/li&gt;
+&lt;li&gt;新的编译器将在 TypeScript 7 中发布，预计需要数月甚至数年的时间才能完全实现.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5-未来展望&#34;&gt;5. &lt;strong&gt;未来展望&lt;/strong&gt;：&lt;/h2&gt;
+&lt;p&gt;尽管重构过程漫长，但 Microsoft 的这一决定被认为是选择了最适合的工具，而非盲目追随 Rust 或 Zig 等语言的潮流.&lt;/p&gt;
+&lt;h2 id=&#34;6-总结&#34;&gt;6. &lt;strong&gt;总结&lt;/strong&gt;:&lt;/h2&gt;
+&lt;p&gt;Microsoft 决定将 TypeScript 编译器从 TypeScript 迁移到 Go 语言，以解决性能瓶颈和低级别优化问题.这一决定不仅提升了编译速度，还为开发者带来了更好的开发体验.尽管重构过程漫长，但这一举措是技术上的重大进步.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

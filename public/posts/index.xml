@@ -6,7 +6,399 @@
     <description>Recent content in Posts on nfwyst&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 28 Feb 2025 17:07:27 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Apr 2025 16:26:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fix Ld System Not Found</title>
+      <link>http://localhost:1313/posts/fix-ld-system-not-found/</link>
+      <pubDate>Sun, 20 Apr 2025 16:26:12 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/fix-ld-system-not-found/</guid>
+      <description>&lt;p&gt;最近使用 bob 编译安装最新的 neovim commit 的时候, 遇到
+&lt;code&gt;ld: library &#39;System&#39; not found 错误&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;后排查是由于更新 mac 系统版本后 xcode 路径的问题, 系统升级后没有兼容, 解决方案如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;确保Xcode命令行工具完整安装&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xcode-select --install
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo xcodebuild -license accept
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;重置Xcode路径&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo xcode-select --reset
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;验证SDK路径存在&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls /Library/Developer/CommandLineTools/SDKs/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果输出中没有MacOSX.sdk，需要重新安装命令行工具：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo rm -rf /Library/Developer/CommandLineTools
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xcode-select --install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;重试CMake构建&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bob install HEAD
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;如果使用Homebrew的CMake，建议更新到最新版本：
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew update &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; brew upgrade cmake
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <content>&lt;p&gt;最近使用 bob 编译安装最新的 neovim commit 的时候, 遇到
+&lt;code&gt;ld: library &#39;System&#39; not found 错误&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;后排查是由于更新 mac 系统版本后 xcode 路径的问题, 系统升级后没有兼容, 解决方案如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;确保Xcode命令行工具完整安装&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xcode-select --install
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo xcodebuild -license accept
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;重置Xcode路径&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo xcode-select --reset
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;验证SDK路径存在&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls /Library/Developer/CommandLineTools/SDKs/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果输出中没有MacOSX.sdk，需要重新安装命令行工具：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo rm -rf /Library/Developer/CommandLineTools
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xcode-select --install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;重试CMake构建&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bob install HEAD
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;如果使用Homebrew的CMake，建议更新到最新版本：
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew update &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; brew upgrade cmake
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Typescript to Go</title>
+      <link>http://localhost:1313/posts/typescript-to-go/</link>
+      <pubDate>Fri, 14 Mar 2025 01:20:47 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/typescript-to-go/</guid>
+      <description>&lt;h2 id=&#34;1-背景&#34;&gt;1. &lt;strong&gt;背景&lt;/strong&gt;：&lt;/h2&gt;
+&lt;p&gt;TypeScript 是现代 Web 开发中最重要的项目之一，但其自身是用 TypeScript 编写的，导致编译器缺乏对低级别优化的支持.&lt;/p&gt;
+&lt;h2 id=&#34;2-重构原因&#34;&gt;2. &lt;strong&gt;重构原因&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;TypeScript 编译器缺乏直接内存访问、原生多线程等低级别优化支持.&lt;/li&gt;
+&lt;li&gt;为了解决这些问题，Microsoft 决定将 TypeScript 编译器从 TypeScript 迁移到 Go 语言.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-选择-go-的原因&#34;&gt;3. &lt;strong&gt;选择 Go 的原因&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;性能提升&lt;/strong&gt;：使用 Go 后，编译器速度提升了 10 倍（例如，VS Code 编译时间从 70 秒减少到 7 秒）.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编译语言&lt;/strong&gt;：Go 是编译语言，可以编译为优化的机器代码，而 JavaScript 是解释型语言.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内存管理&lt;/strong&gt;：Go 使用垃圾回收机制，相比 C++ 或 Rust 更易于使用.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可移植性&lt;/strong&gt;：Microsoft 选择 Go 的主要原因是其可移植性，能够将 TypeScript 代码逐行转换为等效的 Go 代码，保留原有行为.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;4-影响&#34;&gt;4. &lt;strong&gt;影响&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;开发者将在大型项目中体验到显著的性能提升，尤其是在 VS Code 中.&lt;/li&gt;
+&lt;li&gt;新的编译器将在 TypeScript 7 中发布，预计需要数月甚至数年的时间才能完全实现.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5-未来展望&#34;&gt;5. &lt;strong&gt;未来展望&lt;/strong&gt;：&lt;/h2&gt;
+&lt;p&gt;尽管重构过程漫长，但 Microsoft 的这一决定被认为是选择了最适合的工具，而非盲目追随 Rust 或 Zig 等语言的潮流.&lt;/p&gt;</description>
+      <content>&lt;h2 id=&#34;1-背景&#34;&gt;1. &lt;strong&gt;背景&lt;/strong&gt;：&lt;/h2&gt;
+&lt;p&gt;TypeScript 是现代 Web 开发中最重要的项目之一，但其自身是用 TypeScript 编写的，导致编译器缺乏对低级别优化的支持.&lt;/p&gt;
+&lt;h2 id=&#34;2-重构原因&#34;&gt;2. &lt;strong&gt;重构原因&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;TypeScript 编译器缺乏直接内存访问、原生多线程等低级别优化支持.&lt;/li&gt;
+&lt;li&gt;为了解决这些问题，Microsoft 决定将 TypeScript 编译器从 TypeScript 迁移到 Go 语言.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3-选择-go-的原因&#34;&gt;3. &lt;strong&gt;选择 Go 的原因&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;性能提升&lt;/strong&gt;：使用 Go 后，编译器速度提升了 10 倍（例如，VS Code 编译时间从 70 秒减少到 7 秒）.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编译语言&lt;/strong&gt;：Go 是编译语言，可以编译为优化的机器代码，而 JavaScript 是解释型语言.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内存管理&lt;/strong&gt;：Go 使用垃圾回收机制，相比 C++ 或 Rust 更易于使用.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可移植性&lt;/strong&gt;：Microsoft 选择 Go 的主要原因是其可移植性，能够将 TypeScript 代码逐行转换为等效的 Go 代码，保留原有行为.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;4-影响&#34;&gt;4. &lt;strong&gt;影响&lt;/strong&gt;：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;开发者将在大型项目中体验到显著的性能提升，尤其是在 VS Code 中.&lt;/li&gt;
+&lt;li&gt;新的编译器将在 TypeScript 7 中发布，预计需要数月甚至数年的时间才能完全实现.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5-未来展望&#34;&gt;5. &lt;strong&gt;未来展望&lt;/strong&gt;：&lt;/h2&gt;
+&lt;p&gt;尽管重构过程漫长，但 Microsoft 的这一决定被认为是选择了最适合的工具，而非盲目追随 Rust 或 Zig 等语言的潮流.&lt;/p&gt;
+&lt;h2 id=&#34;6-总结&#34;&gt;6. &lt;strong&gt;总结&lt;/strong&gt;:&lt;/h2&gt;
+&lt;p&gt;Microsoft 决定将 TypeScript 编译器从 TypeScript 迁移到 Go 语言，以解决性能瓶颈和低级别优化问题.这一决定不仅提升了编译速度，还为开发者带来了更好的开发体验.尽管重构过程漫长，但这一举措是技术上的重大进步.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Tmux introduction</title>
+      <link>http://localhost:1313/posts/tmux-intro/</link>
+      <pubDate>Thu, 13 Mar 2025 01:00:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/tmux-intro/</guid>
+      <description>&lt;h2 id=&#34;1-概述&#34;&gt;1. &lt;strong&gt;概述&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;tmux 是一个终端复用器, 允许用户在一个终端窗口中管理多个窗口和会话, 适用于以下场景:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;服务器故障时通过 TTY 操作&lt;/li&gt;
+&lt;li&gt;在 VMware 会话中没有完整桌面环境时&lt;/li&gt;
+&lt;li&gt;远程连接不稳定时, 防止会话中断&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;总的来说, tmux 能够帮助用户同时管理多个窗口和面板,提高工作效率&lt;/p&gt;
+&lt;h2 id=&#34;2-安装与启动&#34;&gt;2. &lt;strong&gt;安装与启动&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;安装方式根据平台自行选择&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;RHEL or CentOS&lt;/strong&gt;: 通过命令行 &lt;code&gt;yum install tmux&lt;/code&gt; 安装&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;macOS&lt;/strong&gt;: 使用命令行 &lt;code&gt;brew install tmux&lt;/code&gt; 安装&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;通过命令行 &lt;code&gt;tmux&lt;/code&gt; 启动并进入 tmux 会话, 进入会话后会看到底部有一栏 status bar, 显示了当前命令, 主机名, 时间和日期&lt;/p&gt;
+&lt;p&gt;默认的触发键是 &lt;code&gt;&amp;lt;c-b&amp;gt;&lt;/code&gt;, 触发键结合其他键可以调用 tmux 不同的功能&lt;/p&gt;
+&lt;h2 id=&#34;3-配置&#34;&gt;3. &lt;strong&gt;配置&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;在 home 目录下创建 &lt;code&gt;.config/tmux/tmux.conf&lt;/code&gt; 配置文件, 填入基础配置&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;# alt + p, r 重新加载配置
+unbind r
+bind r source-file ~/.config/tmux/tmux.conf
+
+# 解绑 &amp;lt;c-b&amp;gt;
+unbind C-b
+# 将 alt + p 设置为 leader key, 覆盖默认的 &amp;lt;c-b&amp;gt;
+set -g prefix M-p
+# 允许 alt + p 发送 leader key, 在嵌套的 tmux 会话中很有用
+bind M-p send-prefix
+# 支持鼠标操作, 方便调整窗口大小和选择窗口
+set -g mouse on
+# alt + p 后跟 ` 回到标记的位置, alt + p 后跟 m 可标记 panel
+bind \` switch-client -t&amp;#39;{marked}&amp;#39;
+# window 以及 panel 显示的基础索引从1 开始, 默认从 0 开始
+set -g base-index 1
+set -g pane-base-index 1
+set-window-option -g pane-base-index 1
+# 当一个 window 被删除, 其余 window 自动移动并计算新索引
+set -g renumber-windows on
+# 复制模式下启用 Vi 风格的键绑定, h/j/k/l 移动光标
+set-window-option -g mode-keys vi
+# 默认 shell
+set-option -g default-shell /opt/homebrew/bin/nu
+# 启用焦点事件的传递
+set-option -g focus-events on
+# alpt + p 后跟 x, 关闭 penel
+bind-key x kill-pane
+
+# alt + p, h/l/j/k 在 panel 中移动, 替代默认的箭头键
+bind-key -n M-h select-pane -L
+bind-key -n M-l select-pane -R
+bind-key -n M-j select-pane -D
+bind-key -n M-k select-pane -U
+
+# 在当前目录下打开新窗口或 panel
+bind c new-window -c &amp;#34;#{pane_current_path}&amp;#34;
+bind &amp;#39;&amp;#34;&amp;#39; split-window -v -c &amp;#34;#{pane_current_path}&amp;#34;
+bind % split-window -h -c &amp;#34;#{pane_current_path}&amp;#34;
+
+# 调整 panel 大小
+bind-key h resize-pane -L
+bind-key l resize-pane -R
+bind-key j resize-pane -D
+bind-key k resize-pane -U
+
+# alt + p, alt + p 在当前和上一个 session 中切换
+bind-key M-p switch-client -l
+
+# 通过 alt + i 与左边窗口交换位置
+bind -n M-i swap-window -t -1
+# 通过 alt + o 与右边窗口交换位置
+bind -n M-o swap-window -t +1
+
+# 使用 vi 的可视选择模式
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+# 设置环境变量
+setenv -g SNACKS_KITTY 1
+
+# 启用 passthrough, 允许终端控制序列绕过 tmux 的处理，直接传递给终端应用
+set -g allow-passthrough on
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;31-配置插件管理器&#34;&gt;3.1 &lt;strong&gt;配置插件管理器&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;tpm 是一个 tmux 的插件管理器, 类似于 neovim 中的 lazy.nvim. 通过命令行安装:&lt;/p&gt;</description>
+      <content>&lt;h2 id=&#34;1-概述&#34;&gt;1. &lt;strong&gt;概述&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;tmux 是一个终端复用器, 允许用户在一个终端窗口中管理多个窗口和会话, 适用于以下场景:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;服务器故障时通过 TTY 操作&lt;/li&gt;
+&lt;li&gt;在 VMware 会话中没有完整桌面环境时&lt;/li&gt;
+&lt;li&gt;远程连接不稳定时, 防止会话中断&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;总的来说, tmux 能够帮助用户同时管理多个窗口和面板,提高工作效率&lt;/p&gt;
+&lt;h2 id=&#34;2-安装与启动&#34;&gt;2. &lt;strong&gt;安装与启动&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;安装方式根据平台自行选择&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;RHEL or CentOS&lt;/strong&gt;: 通过命令行 &lt;code&gt;yum install tmux&lt;/code&gt; 安装&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;macOS&lt;/strong&gt;: 使用命令行 &lt;code&gt;brew install tmux&lt;/code&gt; 安装&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;通过命令行 &lt;code&gt;tmux&lt;/code&gt; 启动并进入 tmux 会话, 进入会话后会看到底部有一栏 status bar, 显示了当前命令, 主机名, 时间和日期&lt;/p&gt;
+&lt;p&gt;默认的触发键是 &lt;code&gt;&amp;lt;c-b&amp;gt;&lt;/code&gt;, 触发键结合其他键可以调用 tmux 不同的功能&lt;/p&gt;
+&lt;h2 id=&#34;3-配置&#34;&gt;3. &lt;strong&gt;配置&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;在 home 目录下创建 &lt;code&gt;.config/tmux/tmux.conf&lt;/code&gt; 配置文件, 填入基础配置&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;# alt + p, r 重新加载配置
+unbind r
+bind r source-file ~/.config/tmux/tmux.conf
+
+# 解绑 &amp;lt;c-b&amp;gt;
+unbind C-b
+# 将 alt + p 设置为 leader key, 覆盖默认的 &amp;lt;c-b&amp;gt;
+set -g prefix M-p
+# 允许 alt + p 发送 leader key, 在嵌套的 tmux 会话中很有用
+bind M-p send-prefix
+# 支持鼠标操作, 方便调整窗口大小和选择窗口
+set -g mouse on
+# alt + p 后跟 ` 回到标记的位置, alt + p 后跟 m 可标记 panel
+bind \` switch-client -t&amp;#39;{marked}&amp;#39;
+# window 以及 panel 显示的基础索引从1 开始, 默认从 0 开始
+set -g base-index 1
+set -g pane-base-index 1
+set-window-option -g pane-base-index 1
+# 当一个 window 被删除, 其余 window 自动移动并计算新索引
+set -g renumber-windows on
+# 复制模式下启用 Vi 风格的键绑定, h/j/k/l 移动光标
+set-window-option -g mode-keys vi
+# 默认 shell
+set-option -g default-shell /opt/homebrew/bin/nu
+# 启用焦点事件的传递
+set-option -g focus-events on
+# alpt + p 后跟 x, 关闭 penel
+bind-key x kill-pane
+
+# alt + p, h/l/j/k 在 panel 中移动, 替代默认的箭头键
+bind-key -n M-h select-pane -L
+bind-key -n M-l select-pane -R
+bind-key -n M-j select-pane -D
+bind-key -n M-k select-pane -U
+
+# 在当前目录下打开新窗口或 panel
+bind c new-window -c &amp;#34;#{pane_current_path}&amp;#34;
+bind &amp;#39;&amp;#34;&amp;#39; split-window -v -c &amp;#34;#{pane_current_path}&amp;#34;
+bind % split-window -h -c &amp;#34;#{pane_current_path}&amp;#34;
+
+# 调整 panel 大小
+bind-key h resize-pane -L
+bind-key l resize-pane -R
+bind-key j resize-pane -D
+bind-key k resize-pane -U
+
+# alt + p, alt + p 在当前和上一个 session 中切换
+bind-key M-p switch-client -l
+
+# 通过 alt + i 与左边窗口交换位置
+bind -n M-i swap-window -t -1
+# 通过 alt + o 与右边窗口交换位置
+bind -n M-o swap-window -t +1
+
+# 使用 vi 的可视选择模式
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+# 设置环境变量
+setenv -g SNACKS_KITTY 1
+
+# 启用 passthrough, 允许终端控制序列绕过 tmux 的处理，直接传递给终端应用
+set -g allow-passthrough on
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;31-配置插件管理器&#34;&gt;3.1 &lt;strong&gt;配置插件管理器&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;tpm 是一个 tmux 的插件管理器, 类似于 neovim 中的 lazy.nvim. 通过命令行安装:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 tmux 配置文件中追加 tpm 相关配置:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 插件列表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set -g @plugin &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;tmux-plugins/tpm&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 初始化 tpm&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;run &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;~/.config/tmux/plugins/tpm/tpm&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;32-自定义主题&#34;&gt;3.2 &lt;strong&gt;自定义主题&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;tmux 默认的 statusline 太过简单, 可以安装第三方主题插件自定义, 在配置文件中新增如下内容:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;# 将状态栏显示在底部
+set-option -g status-position bottom
+# 主题插件
+set -g @plugin &amp;#39;wfxr/tmux-power&amp;#39;
+# 插件主题色系
+set -g @tmux_power_theme               &amp;#39;everforest&amp;#39;
+# 自定义箭头图标
+set -g @tmux_power_right_arrow_icon    &amp;#39;&amp;#39;
+set -g @tmux_power_left_arrow_icon     &amp;#39;&amp;#39;
+# 不显示用户名及主机名
+set -g @tmux_power_show_user           false
+set -g @tmux_power_show_host           false
+# 自定义日期时间格式
+set -g @tmux_power_time_format         &amp;#39;%H:%M:%S&amp;#39;
+set -g @tmux_power_date_format         &amp;#39;%m-%d%A&amp;#39;
+
+# 自定义 tmux panel 分割线的样式
+set -g pane-border-style &amp;#34;fg=#333333&amp;#34;
+set -g pane-active-border-style &amp;#34;fg=#333333&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;33-快捷键提示&#34;&gt;3.3 &lt;strong&gt;快捷键提示&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;类似 which-key.nvim, &lt;a href=&#34;https://github.com/alexwforsythe/tmux-which-key&#34;&gt;tmux-which-key&lt;/a&gt; 是一个用于tmux的插件, 允许用户从可定制的弹出菜单中选择操作, 在配置文件中新增如下内容:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;set -g @plugin &amp;#39;alexwforsythe/tmux-which-key&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;完成插件管理器, 主题, 快捷键提示配置后需通过命令行 &lt;code&gt;tmux source ~/.config/tmux/tmux.conf&lt;/code&gt; 重新加载配置文件, 后通过快捷键 &lt;code&gt;alt + p&lt;/code&gt; 后跟 &lt;code&gt;shift + i&lt;/code&gt; 安装插件. &lt;code&gt;alt + p&lt;/code&gt; 后跟 &lt;code&gt;space&lt;/code&gt; 唤出快捷键提示菜单&lt;/p&gt;
+&lt;h2 id=&#34;4-核心功能&#34;&gt;4. &lt;strong&gt;核心功能&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;会话管理&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;创建新会话:&lt;code&gt;tmux new -s &amp;lt;session_name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;分离会话:&lt;code&gt;alt + p, d&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;重新连接会话:&lt;code&gt;tmux attach -t &amp;lt;session_name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;窗口管理&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;创建新窗口:&lt;code&gt;alt + p, c&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;切换窗口:&lt;code&gt;alt + p, &amp;lt;number&amp;gt;&lt;/code&gt; 或 &lt;code&gt;alt + p, p/n&lt;/code&gt;（前后切换）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分屏功能(panel)&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;水平分屏:&lt;code&gt;alt + p, %&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;垂直分屏:&lt;code&gt;alt + p, &amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;切换分屏:&lt;code&gt;alt + p, &amp;lt;方向键&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;复制粘贴&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;进入复制模式:&lt;code&gt;alt + p, [&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;选择文本并复制:使用方向键选择后按 &lt;code&gt;Ctrl + W&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;粘贴:&lt;code&gt;alt + p, ]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5-高级功能&#34;&gt;5. &lt;strong&gt;高级功能&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;鼠标支持&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;启用鼠标模式:&lt;code&gt;set -g mouse on&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;支持调整窗口大小、选择文本等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;搜索历史&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;在复制模式下,使用 &lt;code&gt;Ctrl + R&lt;/code&gt; 反向搜索历史命令&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自定义快捷键&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;可以修改默认快捷键（如将 &lt;code&gt;alt + p&lt;/code&gt; 改为其他组合）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;6-与-zellij-的对比&#34;&gt;6. &lt;strong&gt;与 zellij 的对比&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;tmux&lt;/strong&gt; 和 &lt;strong&gt;zellij&lt;/strong&gt; 都是终端复用器&lt;/li&gt;
+&lt;li&gt;zellij 速度比 tmux 快, 基于 rust 开发&lt;/li&gt;
+&lt;li&gt;tmux 支持 passthrough 而 zellij 不支持&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;7-总结&#34;&gt;7. &lt;strong&gt;总结&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;tmux 是一个强大的工具,特别适合需要管理多个终端会话的用户&lt;/li&gt;
+&lt;li&gt;通过灵活的分屏、会话管理和快捷键,可以显著提高工作效率&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
     <item>
       <title>Create Blog With Hugo</title>
       <link>http://localhost:1313/posts/create-blog-with-hugo/</link>
