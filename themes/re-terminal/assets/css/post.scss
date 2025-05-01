@@ -97,14 +97,7 @@
   }
 
   ul {
-    list-style: none;
-
-    li:not(:empty):before {
-      content: '-';
-      position: absolute;
-      left: -20px;
-      color: var(--accent);
-    }
+    list-style: revert;
   }
 }
 
