@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/posts/block-chain/</loc>
+    <lastmod>2025-05-01T23:40:35+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/blockchain/</loc>
+    <lastmod>2025-05-01T23:40:35+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/crypto/</loc>
+    <lastmod>2025-05-01T23:40:35+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-05-01T23:40:35+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-05-01T23:40:35+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-05-01T23:40:35+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/bitcoin/</loc>
     <lastmod>2025-04-30T23:52:53+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/crypto/</loc>
-    <lastmod>2025-04-30T23:52:53+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/crypto-intro/</loc>
-    <lastmod>2025-04-30T23:52:53+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-04-30T23:52:53+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-04-30T23:52:53+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-04-30T23:52:53+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/brain/</loc>

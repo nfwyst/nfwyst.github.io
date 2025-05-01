@@ -6,7 +6,148 @@
     <description>Recent content in Posts on nfwyst&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 30 Apr 2025 23:52:53 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 May 2025 23:40:35 +0800</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Block Chain</title>
+      <link>http://localhost:1313/posts/block-chain/</link>
+      <pubDate>Thu, 01 May 2025 23:40:35 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/block-chain/</guid>
+      <description>&lt;p&gt;区块链起源于btc, 最初由中本聪（Satoshi Nakamoto）在2008年提出, 从此开启了 web
+3.0 的时代. 本文通过一个故事讲解什么是区块链以及它带来的好处.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;故事开始：阳光村的烦恼&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;想象一个叫做“阳光村”的小村庄，村里没有银行，大家互相之间经常换东西、借东西。比如，张三借给李四 5 个鸡蛋，王五帮赵六修了屋顶，说好了赵六下次要请王五吃顿饭。&lt;/p&gt;
+&lt;p&gt;一开始，大家凭记忆记账，或者在小本本上记。但时间长了，问题就来了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;有人会忘记&lt;/strong&gt;：“李四，你上次借我的鸡蛋还了吗？” “啊？有这回事吗？”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;有人会赖账&lt;/strong&gt;：“我明明记得是 3 个鸡蛋，不是 5 个！”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;本子可能会丢&lt;/strong&gt;：如果负责记账的村长不小心把唯一的账本弄丢了，或者被水泡了，那所有的记录都没了，村里肯定要乱套。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;有人可能偷偷修改&lt;/strong&gt;：万一记账的人不老实，偷偷把账本改了，别人也很难发现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;总之，大家互相之间越来越不信任，做买卖、互相帮忙都变得小心翼翼，村子的活力也下降了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;聪明的村民小明想出了新办法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;村里有个爱思考的年轻人叫小明。他看到这种情况，想出了一个绝妙的主意：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;不再只有一个账本，而是每家都有一个一模一样的账本！&lt;/strong&gt;
+小明说：“我们不再依赖村长一个人记账了。从现在开始，村里每户人家都准备一个大账本。”&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;任何交易，都要大声喊出来，让全村人都知道！&lt;/strong&gt;
+“以后，比如张三要给李四 5 个鸡蛋，他俩就得在村口大喇叭上喊：‘我是张三，我今天给了李四 5 个鸡蛋！’ 这样，所有在场能听见的人（比如超过一半的村民）都知道了这件事。”&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;大家一起记账，并且核对！&lt;/strong&gt;
+“听到广播后，每家每户都在自己的账本上记下这笔交易：‘张三 -&amp;gt; 李四：5 个鸡蛋’。记账之前，大家会互相确认一下：‘嘿，张三家有那么多鸡蛋吗？’‘李四，你收到了吗？’ 确认无误后，才记下来。”&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;账本按页记录，并且“盖章”链接起来！&lt;/strong&gt;
+小明又说：“为了防止有人以后偷偷修改某一页的记录，我们这样做：每记满一页纸（比如记录了 10 笔交易后），大家就一起对这一页的内容进行一个复杂的计算（想象成一种特殊的‘盖章’方法）。这个‘章’很特别，它不仅包含了这一页所有交易的信息，还包含了&lt;strong&gt;上一页&lt;/strong&gt;那个‘章’的信息。盖好章后，这一页就算‘&lt;strong&gt;封存&lt;/strong&gt;’了，谁也改不了。然后大家翻到新的一页，继续记账，新页的‘章’又会包含旧页的‘章’的信息。”&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;这一页纸，就好比区块链中的一个“区块 (Block)”&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;每一页都通过那个特殊的“章”（包含了上一页信息）和前一页链接起来，形成了一条长长的、按时间顺序排列的记录链条。这就是“链 (Chain)”&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;新系统的好处&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;阳光村采用了小明的方法后，带来了很多好处：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;公开透明 (Transparency)&lt;/strong&gt;：所有交易记录对全村（所有拥有账本的人）都是公开的，谁欠谁钱，一目了然。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;无法篡改 (Immutability)&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;因为每家都有账本，如果有人想偷偷修改自己家的账本，比如把“张三给李四 5 个鸡蛋”改成“1 个鸡蛋”，他这个记录就和别人家对不上了，大家立刻就知道他在撒谎。&lt;/li&gt;
+&lt;li&gt;更厉害的是，因为每一页的“章”都和上一页关联，如果他想修改以前某一页的记录，他不仅要修改那一页，还得重新计算那一页的“章”，以及&lt;strong&gt;之后所有页&lt;/strong&gt;的“章”！这几乎是不可能完成的任务。&lt;/li&gt;
+&lt;li&gt;除非他能说服村里&lt;strong&gt;超过一半&lt;/strong&gt;的人同时修改他们各自的账本（而且是从他修改的那一页开始一直到最后），这在阳光村里几乎是不可能的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;去中心化 (Decentralization)&lt;/strong&gt;：不再依赖村长那一个“中心”来记账。即使有一两户人家的账本丢了或者毁了，也没关系，其他大部分人家还有完整的备份。系统非常稳健。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信任建立&lt;/strong&gt;：大家不再需要完全信任某一个人，而是信任这个&lt;strong&gt;记账系统&lt;/strong&gt;本身。因为规则是透明的，修改是极其困难的，作弊成本非常高。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;故事总结：什么是区块链？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;好了，阳光村的故事讲完了。现在我们回来看区块链：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;阳光村的“全村共享账本”&lt;/strong&gt;：就是 &lt;strong&gt;分布式账本 (Distributed Ledger)&lt;/strong&gt;
+技术。账本不是存在一个地方，而是分散存储在网络中的许多计算机上。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;每一页记录交易的纸&lt;/strong&gt;：就是区块链中的 &lt;strong&gt;区块 (Block)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用特殊的“盖章”方法把每一页链接起来&lt;/strong&gt;：就是利用
+&lt;strong&gt;密码学技术 (Cryptography)&lt;/strong&gt;（比如哈希函数）将区块按时间顺序链接起来，形成
+&lt;strong&gt;链 (Chain)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全村人一起验证交易并记账&lt;/strong&gt;：这就是 &lt;strong&gt;共识机制 (Consensus
+Mechanism)&lt;/strong&gt;，确保所有节点（村民）记录的信息是一致和有效的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;公开透明、难以篡改、去中心化&lt;/strong&gt;：这些就是区块链的主要 &lt;strong&gt;特点和优势&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，简单来说，&lt;strong&gt;区块链就是一个分布式的、公开透明的、难以篡改的、通过密码学技术链接起来的电子记账本系统。&lt;/strong&gt;
+它不依赖任何中央机构，通过一套规则让参与者共同维护一个可信的记录。&lt;/p&gt;</description>
+      <content>&lt;p&gt;区块链起源于btc, 最初由中本聪（Satoshi Nakamoto）在2008年提出, 从此开启了 web
+3.0 的时代. 本文通过一个故事讲解什么是区块链以及它带来的好处.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;故事开始：阳光村的烦恼&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;想象一个叫做“阳光村”的小村庄，村里没有银行，大家互相之间经常换东西、借东西。比如，张三借给李四 5 个鸡蛋，王五帮赵六修了屋顶，说好了赵六下次要请王五吃顿饭。&lt;/p&gt;
+&lt;p&gt;一开始，大家凭记忆记账，或者在小本本上记。但时间长了，问题就来了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;有人会忘记&lt;/strong&gt;：“李四，你上次借我的鸡蛋还了吗？” “啊？有这回事吗？”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;有人会赖账&lt;/strong&gt;：“我明明记得是 3 个鸡蛋，不是 5 个！”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;本子可能会丢&lt;/strong&gt;：如果负责记账的村长不小心把唯一的账本弄丢了，或者被水泡了，那所有的记录都没了，村里肯定要乱套。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;有人可能偷偷修改&lt;/strong&gt;：万一记账的人不老实，偷偷把账本改了，别人也很难发现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;总之，大家互相之间越来越不信任，做买卖、互相帮忙都变得小心翼翼，村子的活力也下降了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;聪明的村民小明想出了新办法&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;村里有个爱思考的年轻人叫小明。他看到这种情况，想出了一个绝妙的主意：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;不再只有一个账本，而是每家都有一个一模一样的账本！&lt;/strong&gt;
+小明说：“我们不再依赖村长一个人记账了。从现在开始，村里每户人家都准备一个大账本。”&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;任何交易，都要大声喊出来，让全村人都知道！&lt;/strong&gt;
+“以后，比如张三要给李四 5 个鸡蛋，他俩就得在村口大喇叭上喊：‘我是张三，我今天给了李四 5 个鸡蛋！’ 这样，所有在场能听见的人（比如超过一半的村民）都知道了这件事。”&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;大家一起记账，并且核对！&lt;/strong&gt;
+“听到广播后，每家每户都在自己的账本上记下这笔交易：‘张三 -&amp;gt; 李四：5 个鸡蛋’。记账之前，大家会互相确认一下：‘嘿，张三家有那么多鸡蛋吗？’‘李四，你收到了吗？’ 确认无误后，才记下来。”&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;账本按页记录，并且“盖章”链接起来！&lt;/strong&gt;
+小明又说：“为了防止有人以后偷偷修改某一页的记录，我们这样做：每记满一页纸（比如记录了 10 笔交易后），大家就一起对这一页的内容进行一个复杂的计算（想象成一种特殊的‘盖章’方法）。这个‘章’很特别，它不仅包含了这一页所有交易的信息，还包含了&lt;strong&gt;上一页&lt;/strong&gt;那个‘章’的信息。盖好章后，这一页就算‘&lt;strong&gt;封存&lt;/strong&gt;’了，谁也改不了。然后大家翻到新的一页，继续记账，新页的‘章’又会包含旧页的‘章’的信息。”&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;这一页纸，就好比区块链中的一个“区块 (Block)”&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;每一页都通过那个特殊的“章”（包含了上一页信息）和前一页链接起来，形成了一条长长的、按时间顺序排列的记录链条。这就是“链 (Chain)”&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;新系统的好处&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;阳光村采用了小明的方法后，带来了很多好处：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;公开透明 (Transparency)&lt;/strong&gt;：所有交易记录对全村（所有拥有账本的人）都是公开的，谁欠谁钱，一目了然。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;无法篡改 (Immutability)&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;因为每家都有账本，如果有人想偷偷修改自己家的账本，比如把“张三给李四 5 个鸡蛋”改成“1 个鸡蛋”，他这个记录就和别人家对不上了，大家立刻就知道他在撒谎。&lt;/li&gt;
+&lt;li&gt;更厉害的是，因为每一页的“章”都和上一页关联，如果他想修改以前某一页的记录，他不仅要修改那一页，还得重新计算那一页的“章”，以及&lt;strong&gt;之后所有页&lt;/strong&gt;的“章”！这几乎是不可能完成的任务。&lt;/li&gt;
+&lt;li&gt;除非他能说服村里&lt;strong&gt;超过一半&lt;/strong&gt;的人同时修改他们各自的账本（而且是从他修改的那一页开始一直到最后），这在阳光村里几乎是不可能的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;去中心化 (Decentralization)&lt;/strong&gt;：不再依赖村长那一个“中心”来记账。即使有一两户人家的账本丢了或者毁了，也没关系，其他大部分人家还有完整的备份。系统非常稳健。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信任建立&lt;/strong&gt;：大家不再需要完全信任某一个人，而是信任这个&lt;strong&gt;记账系统&lt;/strong&gt;本身。因为规则是透明的，修改是极其困难的，作弊成本非常高。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;故事总结：什么是区块链？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;好了，阳光村的故事讲完了。现在我们回来看区块链：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;阳光村的“全村共享账本”&lt;/strong&gt;：就是 &lt;strong&gt;分布式账本 (Distributed Ledger)&lt;/strong&gt;
+技术。账本不是存在一个地方，而是分散存储在网络中的许多计算机上。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;每一页记录交易的纸&lt;/strong&gt;：就是区块链中的 &lt;strong&gt;区块 (Block)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用特殊的“盖章”方法把每一页链接起来&lt;/strong&gt;：就是利用
+&lt;strong&gt;密码学技术 (Cryptography)&lt;/strong&gt;（比如哈希函数）将区块按时间顺序链接起来，形成
+&lt;strong&gt;链 (Chain)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全村人一起验证交易并记账&lt;/strong&gt;：这就是 &lt;strong&gt;共识机制 (Consensus
+Mechanism)&lt;/strong&gt;，确保所有节点（村民）记录的信息是一致和有效的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;公开透明、难以篡改、去中心化&lt;/strong&gt;：这些就是区块链的主要 &lt;strong&gt;特点和优势&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，简单来说，&lt;strong&gt;区块链就是一个分布式的、公开透明的、难以篡改的、通过密码学技术链接起来的电子记账本系统。&lt;/strong&gt;
+它不依赖任何中央机构，通过一套规则让参与者共同维护一个可信的记录。&lt;/p&gt;
+&lt;p&gt;就像阳光村解决了信任问题一样，区块链技术也被应用在很多领域，比如数字货币（比特币就是最早的应用）、供应链溯源、版权保护、身份认证等等，因为它提供了一种在不完全信任的环境下进行协作和记录价值的方式。&lt;/p&gt;
+&lt;p&gt;希望这个故事能帮你理解区块链的基本概念！&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>Crypto Intro</title>
       <link>http://localhost:1313/posts/crypto-intro/</link>

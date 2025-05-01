@@ -14,7 +14,7 @@ autoCover = true
 showLastUpdated = true
 Toc = true
 TocTitle = "Outline"
-readingTime = true
+readingTime = false
 
 [params.twitter]
 creator = "qi_wo58048"
@@ -34,8 +34,6 @@ newerPosts = "Newer posts"
 olderPosts = "Older posts"
 missingContentMessage = "Page not found..."
 missingBackButtonLabel = "Back to home page"
-minuteReadingTime = "min read"
-words = "words"
 
 [languages.en.params.logo]
 logoText = "A shortcut is the longest distance between two points"
