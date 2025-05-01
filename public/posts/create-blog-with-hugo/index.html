@@ -39,6 +39,11 @@
 
 <meta name="twitter:card" content="summary" />
 
+  
+    <meta name="twitter:site" content="https://x.com/qi_wo58048" />
+  
+    <meta name="twitter:creator" content="" />
+
 
 
 <meta property="og:locale" content="en" />
@@ -84,7 +89,7 @@
   <header class="header">
   <div class="header__inner">
     <div class="header__logo">
-      <a href="http://localhost:1313/">
+      <a href="/">
   <div class="logo">
     A shortcut is the longest distance between two points
   </div>
@@ -92,8 +97,38 @@
 
     </div>
     
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
     
   </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
   
 </header>
 
@@ -104,7 +139,7 @@
   <h1 class="post-title">
     <a href="http://localhost:1313/posts/create-blog-with-hugo/">Create Blog With Hugo</a>
   </h1>
-  <div class="post-meta"><time class="post-date">2025-02-28</time><span class="post-author">nfwyst</span>
+  <div class="post-meta"><time class="post-date">2025-02-28[Updated::2025-02-28]</time><span class="post-author">nfwyst</span>
     
 </div>
 
@@ -127,6 +162,22 @@
 
 
 
+  
+    <div class="table-of-contents">
+      <h2>
+        Outline
+      </h2>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用-hugo-创建-blog">使用 hugo 创建 blog</a>
+      <ul>
+        <li><a href="#hugo-简介">Hugo 简介</a></li>
+        <li><a href="#创建-hugo-博客的步骤">创建 Hugo 博客的步骤</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
   
 
   <div class="post-content"><div>
@@ -229,6 +280,26 @@
 </span></span></code></pre></div><p>根据实际情况调整发布的分支和hugo的版本, 分别对应 branches 和 HUGO_VERSION. 如果发布的 domain 默认为 http, 则需要调整 steps.pages.outputs.base_url 和 steps.pages.outputs.page_url 为实际的 https 地址, 因为 github 官方的 actions/configure-pages@v5 在自定义 domain 检测为 http 的情况下输出的是 http 地址</p>
 
       </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="http://localhost:1313/posts/tmux-intro/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Tmux introduction</span>
+            </a>
+        </span>
+        
+        
+    </div>
+</div>
 
   
 

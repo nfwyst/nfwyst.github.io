@@ -775,5 +775,22 @@ set -g pane-active-border-style &amp;#34;fg=#333333&amp;#34;
 </content>
     </item>
     
+    <item>
+      <title></title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;中年失业人员&lt;/li&gt;
+&lt;li&gt;持续学习中&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <content>&lt;ul&gt;
+&lt;li&gt;中年失业人员&lt;/li&gt;
+&lt;li&gt;持续学习中&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
   </channel>
 </rss>
