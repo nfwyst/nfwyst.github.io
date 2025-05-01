@@ -1,17 +1,10 @@
 +++
 title = "Create Blog With Hugo"
 date = "2025-02-28T17:07:27+08:00"
-author = "nfwyst"
-authorTwitter = "" #do not include @
 cover = "/img/hugo.png"
-coverCaption = ""
 tags = ["hugo", "golang"]
 keywords = ["golang", "hugo"]
 description = "在本文中我们将使用 hugo 创建一个可以存储文章元数据的静态博客站点"
-showFullContent = false
-readingTime = false
-hideComments = false
-color = "" #color from the theme settings
 +++
 
 ## 使用 hugo 创建 blog

@@ -1,17 +1,9 @@
 +++
 title = "Typescript to Go"
 date = "2025-03-14T01:20:47+08:00"
-author = "nfwyst"
-authorTwitter = "" #do not include @
-cover = ""
-coverCaption = ""
 tags = ["ts", "js"]
 keywords = ["typescript", "javascript"]
 description = "微软宣布将 Typescript 编译器迁移到 Golang"
-showFullContent = false
-readingTime = false
-hideComments = false
-color = "" #color from the theme settings
 +++
 
 ## 1. **背景**：

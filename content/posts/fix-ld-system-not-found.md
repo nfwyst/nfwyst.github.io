@@ -1,17 +1,9 @@
 +++
 title = "Fix Ld System Not Found"
 date = "2025-04-20T16:26:12+08:00"
-author = "nfwyst"
-authorTwitter = "" #do not include @
-cover = ""
-coverCaption = ""
 tags = ["build", "bob"]
 keywords = ["neovim", "ld"]
 description = "mac 修复 ld: System 找不到的问题"
-showFullContent = false
-readingTime = false
-hideComments = false
-color = "" #color from the theme settings
 +++
 
 最近使用 bob 编译安装最新的 neovim commit 的时候, 遇到

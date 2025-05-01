@@ -22,7 +22,6 @@ site = "https://x.com/qi_wo58048"
 
 [languages]
 [languages.en.params]
-languageName = "English"
 title = "A shortcut is the longest distance between two points"
 subtitle = ""
 owner = ""

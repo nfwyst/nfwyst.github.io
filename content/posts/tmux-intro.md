@@ -1,17 +1,9 @@
 +++
 title = "Tmux introduction"
 date = "2025-03-13T01:00:00+08:00"
-author = "nfwyst"
-authorTwitter = "" #do not include @
-cover = ""
-coverCaption = ""
 tags = ["terminal", "tmux"]
 keywords = ["multiplexer", "tmux"]
 description = "tmux 介绍与使用"
-showFullContent = false
-readingTime = false
-hideComments = false
-color = "" #color from the theme settings
 +++
 
 ## 1. **概述**

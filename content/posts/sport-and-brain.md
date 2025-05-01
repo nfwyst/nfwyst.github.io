@@ -1,17 +1,9 @@
 +++
 title = "Exercise reshapes the brain"
 date = "2025-04-30T22:17:53+08:00"
-author = ""
-authorTwitter = "" #do not include @
-cover = ""
-coverCaption = ""
 tags = ["sport", "brain"]
 keywords = ["cell", "improvement"]
 description = "运动重塑大脑：从细胞到心智的全面提升"
-showFullContent = false
-readingTime = false
-hideComments = false
-color = "" #color from the theme settings
 +++
 
 在现代社会，我们常常面临压力、焦虑、抑郁等心理挑战。然而，答案或许就藏在我们祖先的生活方式中——持续的身体活动。研究表明，运动不仅能强健体魄，更能深刻地“改造”我们的大脑，提升认知功能、情绪管理能力，甚至延缓衰老。本文将深入探讨运动如何从细胞层面影响大脑，并提供实际的应用建议。

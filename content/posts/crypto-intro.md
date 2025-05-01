@@ -1,17 +1,9 @@
 +++
 title = "Crypto Intro"
 date = "2025-04-30T23:52:53+08:00"
-author = ""
-authorTwitter = "" #do not include @
-cover = ""
-coverCaption = ""
 tags = ["crypto", "bitcoin"]
 keywords = ["blockchain", "eth"]
 description = "数字货币入门-基本概念"
-showFullContent = false
-readingTime = false
-hideComments = false
-color = "" #color from the theme settings
 +++
 
 数字货币是一种有价值的数字资产, 可以由央行发布或私人公司发布. 一般情况下所说的数字货币是指加密货币, 属于数字货币的一种, 是一种基于区块链技术而生成的数字形式的资产, 通过密码学原理来确保其安全. 这里面有一些概念
