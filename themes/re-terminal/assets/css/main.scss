@@ -38,9 +38,24 @@ body {
   -webkit-text-size-adjust: 100%;
 
   p {
-    text-indent: 2em;
     text-align: justify;
     word-break: break-all;
+  }
+
+  .post-content {
+    text-indent: 2em;
+    li {
+      text-indent: 0;
+      margin-left: calc(2em - 5px);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      text-indent: 0;
+    }
   }
 
   .post-content,
