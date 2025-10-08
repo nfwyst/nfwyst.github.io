@@ -42,7 +42,7 @@ code.language-scss,
 .token.function-name,
 .token.deleted,
 code[class*="language-"],
-.command-line-prompt>span:before {
+.command-line-prompt > span:before {
   color: var(--syntax-func-color, color-mix(in srgb, var(--accent) 70%, #999 30%)) !important;
 }
 
@@ -114,15 +114,16 @@ pre[class*="language-"] {
 }
 
 .code-toolbar {
+  background-color: #000 !important;
   --code-margin: 40px;
   position: relative;
   margin: var(--code-margin) 0;
   padding: 20px;
   border: 1px solid var(--syntax-code-border-color);
 
-  +.code-toolbar,
-  +.highlight,
-  +.highlight .code-toolbar {
+  + .code-toolbar,
+  + .highlight,
+  + .highlight .code-toolbar {
     border-top: 0;
     margin-top: calc(-1 * var(--code-margin));
   }
@@ -137,7 +138,7 @@ pre[class*="language-"] {
     color: inherit;
   }
 
-  >.toolbar {
+  > .toolbar {
     button {
       font-size: 0.8em !important;
       background: var(--syntax-code-copy-button-background) !important;
@@ -150,3 +151,4 @@ pre[class*="language-"] {
     }
   }
 }
+

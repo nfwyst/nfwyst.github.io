@@ -2,6 +2,14 @@ html {
   box-sizing: border-box;
 }
 
+.copy-to-clipboard-button span {
+  color: white !important;
+}
+
+span.token.comment {
+  color: #999 !important;
+}
+
 *,
 *:before,
 *:after {
@@ -11,7 +19,12 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Fira Code', Monaco, Consolas, Ubuntu Mono, monospace;
+  font-family:
+    "Fira Code",
+    Monaco,
+    Consolas,
+    Ubuntu Mono,
+    monospace;
   font-size: 1rem;
   line-height: 1.54;
   letter-spacing: -0.02em;
@@ -30,9 +43,12 @@ body {
     word-break: break-all;
   }
 
-  .post-content, .footer, .table-of-contents {
+  .post-content,
+  .footer,
+  .table-of-contents {
     mix-blend-mode: soft-light;
-    code, pre {
+    code,
+    pre {
       background-color: #000 !important;
       font-weight: bold;
     }
@@ -145,16 +161,23 @@ figure {
   }
 }
 
-code, kbd {
-  font-family: 'Fira Code', Monaco, Consolas, Ubuntu Mono, monospace !important;
+code,
+kbd {
+  font-family:
+    "Fira Code",
+    Monaco,
+    Consolas,
+    Ubuntu Mono,
+    monospace !important;
   font-feature-settings: normal;
   background: color-mix(in srgb, var(--accent), transparent 80%);
   color: var(--accent);
   padding: 1px 6px;
   margin: 0 2px;
-  font-size: .95rem;
+  font-size: 0.95rem;
 
-  code, kbd {
+  code,
+  kbd {
     background: transparent;
     padding: 0;
     margin: 0;
@@ -165,10 +188,10 @@ pre {
   background: transparent !important;
   padding: 20px 10px;
   margin: 40px 0;
-  font-size: .95rem !important;
+  font-size: 0.95rem !important;
   overflow: auto;
-  border-top: 1px solid rgba(255, 255, 255, .1);
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
   + pre {
     border-top: 0;
@@ -212,7 +235,7 @@ blockquote {
   }
 
   p:first-of-type:before {
-    content: '>';
+    content: ">";
     display: block;
     position: absolute;
     left: -25px;
@@ -228,11 +251,11 @@ blockquote {
     padding-top: 60px;
 
     p:before {
-      content: '';
+      content: "";
     }
 
     &:before {
-      content: '> From Twitter:';
+      content: "> From Twitter:";
       position: absolute;
       top: 20px;
       color: var(--accent);
@@ -362,7 +385,7 @@ hr {
 }
 
 sup {
- line-height: 0;
+  line-height: 0;
 }
 
 /* 搜索页面样式 */
@@ -371,7 +394,7 @@ sup {
     display: flex;
     gap: 10px;
     margin: 30px 0;
-    
+
     .search-input {
       flex: 1;
       padding: 10px 15px;
@@ -380,14 +403,14 @@ sup {
       color: var(--color);
       font-family: inherit;
       font-size: 1rem;
-      
+
       &:focus {
         outline: none;
         border-color: var(--accent);
         box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.2);
       }
     }
-    
+
     .search-button {
       padding: 10px 20px;
       background: var(--accent);
@@ -396,29 +419,27 @@ sup {
       cursor: pointer;
       font-family: inherit;
       font-size: 1rem;
-      
+
       &:hover {
         opacity: 0.9;
       }
     }
   }
-  
+
   .search-results {
     margin-top: 40px;
-    
+
     h2 {
       margin-bottom: 20px;
       color: var(--accent);
     }
-    
+
     p {
       margin-bottom: 20px;
       color: var(--accent);
     }
   }
 }
-
-
 
 /* 分类和标签页面样式 */
 .terms {
@@ -427,11 +448,11 @@ sup {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
     margin-top: 30px;
-    
+
     @media (max-width: $phone) {
       grid-template-columns: 1fr;
     }
-    
+
     .term-tag {
       display: flex;
       justify-content: space-between;
@@ -441,17 +462,17 @@ sup {
       text-decoration: none;
       color: var(--color);
       transition: all 0.3s ease;
-      
+
       &:hover {
         background: var(--accent);
         color: var(--accent-contrast-color);
         transform: translateY(-2px);
       }
-      
+
       .term-name {
         font-weight: bold;
       }
-      
+
       .term-count {
         background: var(--accent);
         color: var(--accent-contrast-color);
@@ -461,31 +482,31 @@ sup {
       }
     }
   }
-  
+
   .terms-list {
     margin-top: 30px;
-    
+
     .term-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 0;
       border-bottom: 1px solid var(--border-color);
-      
+
       &:last-child {
         border-bottom: none;
       }
-      
+
       .term-title {
         text-decoration: none;
         color: var(--color);
         font-size: 1.1rem;
-        
+
         &:hover {
           color: var(--accent);
         }
       }
-      
+
       .term-count {
         color: var(--accent);
         font-size: 0.9rem;
