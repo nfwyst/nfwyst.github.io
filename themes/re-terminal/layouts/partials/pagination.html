@@ -1,0 +1,81 @@
+<div class="pagination">
+  <div class="pagination__buttons">
+    {{ if .Paginator.HasPrev }}
+      <a href="{{ .Paginator.Prev.URL }}" class="button previous">
+        <span class="button__icon">←</span>
+        <span class="button__text">{{ $.Site.Params.newerPosts | default "上一页" }}</span>
+      </a>
+    {{ end }}
+    
+    {{/* 页码显示 */}}
+    <div class="pagination__pages">
+      {{ $currentPage := .Paginator.PageNumber }}
+      {{ $totalPages := .Paginator.TotalPages }}
+      {{ $delta := 2 }}
+      
+      {{ range $i := seq 1 $totalPages }}
+        {{ if or (eq $i 1) (eq $i $totalPages) (and (ge $i (sub $currentPage $delta)) (le $i (add $currentPage $delta))) }}
+          {{ if eq $i $currentPage }}
+            <span class="pagination__page pagination__page--current">{{ $i }}</span>
+          {{ else }}
+            <a href="{{ if eq $i 1 }}{{ $.Paginator.First.URL }}{{ else }}{{ $.Paginator.First.URL }}page/{{ $i }}/{{ end }}" class="pagination__page">{{ $i }}</a>
+          {{ end }}
+        {{ else if or (eq $i (sub $currentPage $delta 1)) (eq $i (add $currentPage $delta 1)) }}
+          <span class="pagination__ellipsis">...</span>
+        {{ end }}
+      {{ end }}
+    </div>
+    
+    {{/* 跳转表单 */}}
+    <div class="pagination__jump">
+      <input type="number" id="paginationInput" min="1" max="{{ $totalPages }}" placeholder="页码" class="pagination__input">
+      <button type="button" class="pagination__button" onclick="paginationJump()">跳转</button>
+    </div>
+    
+    <script>
+    function paginationJump() {
+      const pageInput = document.getElementById('paginationInput');
+      const pageNumber = parseInt(pageInput.value);
+      const totalPages = {{ $totalPages }};
+      const baseUrl = '{{ .Permalink }}';
+      
+      if (pageNumber >= 1 && pageNumber <= totalPages) {
+        let targetUrl;
+        if (pageNumber === 1) {
+          // 第一页直接使用基础 URL
+          targetUrl = baseUrl.replace(/\/$/, '');
+        } else {
+          // 其他页面使用 /page/X/ 格式
+          targetUrl = baseUrl.replace(/\/$/, '') + '/page/' + pageNumber + '/';
+        }
+        window.location.href = targetUrl;
+      } else {
+        alert('请输入有效的页码 (1-' + totalPages + ')');
+      }
+    }
+    
+    // 支持回车键跳转
+    document.addEventListener('DOMContentLoaded', function() {
+      const input = document.getElementById('paginationInput');
+      if (input) {
+        input.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            paginationJump();
+          }
+        });
+      }
+    });
+    </script>
+    
+    {{ if .Paginator.HasNext }}
+      <a href="{{ .Paginator.Next.URL }}" class="button next">
+        <span class="button__text">{{ $.Site.Params.olderPosts | default "下一页" }}</span>
+        <span class="button__icon">→</span>
+      </a>
+    {{ end }}
+  </div>
+  
+  <div class="pagination__info">
+    第 {{ $currentPage }} 页，共 {{ $totalPages }} 页
+  </div>
+</div>

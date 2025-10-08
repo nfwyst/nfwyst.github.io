@@ -1,0 +1,213 @@
+{{ define "main" }}
+<div class="search">
+  <h1>搜索文章</h1>
+  
+  <form class="search-form" id="searchForm">
+    <input type="text" name="q" placeholder="输入关键词搜索..." class="search-input" id="searchInput">
+  </form>
+
+  <div class="search-results" id="searchResults" style="display: none;">
+    <h2 id="searchTitle">搜索结果</h2>
+    <p id="searchCount"></p>
+    <div class="posts" id="searchResultsList">
+    </div>
+  </div>
+
+  <div class="search-no-results" id="searchNoResults" style="display: none;">
+    <p id="noResultsMessage"></p>
+  </div>
+</div>
+
+<script>
+// 文章数据
+const allPosts = [
+  {{ range $index, $page := where .Site.RegularPages "Type" "posts" }}
+  {
+    title: "{{ replace $page.Title "\"" "\\\"" }}",
+    url: "{{ $page.Permalink }}",
+    date: "{{ if $page.Date }}{{ $page.Date.Format "2006-01-02" }}{{ end }}",
+    author: {{ if $page.Params.Author }}"{{ replace $page.Params.Author "\"" "\\\"" }}"{{ else }}null{{ end }},
+    tags: {{ $page.Params.tags | default slice | jsonify }},
+    keywords: {{ $page.Params.keywords | default slice | jsonify }},
+    description: "{{ if $page.Description }}{{ replace $page.Description "\"" "\\\"" }}{{ else }}{{ replace $page.Summary "\"" "\\\"" }}{{ end }}",
+    content: "{{ replace (or $page.Plain $page.Content) "\"" "\\\"" }}",
+    cover: {{ if $page.Params.cover }}"{{ $page.Params.cover }}"{{ else }}null{{ end }}
+  }{{ if lt $index (sub (len (where .Site.RegularPages "Type" "posts")) 1) }},{{ end }}
+  {{ end }}
+];
+
+// 简单的搜索测试
+function testSearch() {
+  console.log('Test search function');
+  console.log('Posts loaded:', allPosts.length);
+  
+  // 测试搜索
+  const testResults = allPosts.filter(post => 
+    post.title.toLowerCase().includes('hugo')
+  );
+  console.log('Test results for "hugo":', testResults.length);
+}
+
+// 搜索函数
+function performSearch(query) {
+  console.log('Performing search for:', query);
+  
+  const searchQuery = query.toLowerCase().trim();
+  
+  if (!searchQuery) {
+    hideResults();
+    return;
+  }
+
+  const results = allPosts.filter(post => {
+    const title = post.title.toLowerCase();
+    const content = post.content.toLowerCase();
+    const description = post.description.toLowerCase();
+    
+    // 处理 tags 和 keywords 字段（可能是字符串或数组）
+    let tags = [];
+    if (Array.isArray(post.tags)) {
+      tags = post.tags.map(tag => tag.toLowerCase());
+    } else if (typeof post.tags === 'string' && post.tags) {
+      try {
+        tags = JSON.parse(post.tags).map(tag => tag.toLowerCase());
+      } catch (e) {
+        console.warn('Failed to parse tags:', post.tags);
+      }
+    }
+    
+    let keywords = [];
+    if (Array.isArray(post.keywords)) {
+      keywords = post.keywords.map(keyword => keyword.toLowerCase());
+    } else if (typeof post.keywords === 'string' && post.keywords) {
+      try {
+        keywords = JSON.parse(post.keywords).map(keyword => keyword.toLowerCase());
+      } catch (e) {
+        console.warn('Failed to parse keywords:', post.keywords);
+      }
+    }
+
+    return (
+      title.includes(searchQuery) ||
+      content.includes(searchQuery) ||
+      description.includes(searchQuery) ||
+      tags.some(tag => tag.includes(searchQuery)) ||
+      keywords.some(keyword => keyword.includes(searchQuery))
+    );
+  });
+
+  console.log('Found results:', results.length);
+  displayResults(results, searchQuery);
+}
+
+// 显示搜索结果
+function displayResults(results, query) {
+  const resultsContainer = document.getElementById('searchResultsList');
+  const searchTitle = document.getElementById('searchTitle');
+  const searchCount = document.getElementById('searchCount');
+  const searchResults = document.getElementById('searchResults');
+  const searchNoResults = document.getElementById('searchNoResults');
+  const noResultsMessage = document.getElementById('noResultsMessage');
+
+  // 清空之前的结果
+  resultsContainer.innerHTML = '';
+
+  if (results.length > 0) {
+    searchTitle.textContent = `搜索结果: "${query}"`;
+    searchCount.textContent = `找到 ${results.length} 篇文章`;
+    
+    results.forEach(post => {
+      const article = document.createElement('article');
+      article.className = 'post on-list';
+      
+      article.innerHTML = `
+        <h1 class="post-title">
+          <a href="${post.url}">${post.title}</a>
+        </h1>
+        <div class="post-meta">
+          ${post.date ? `<time class="post-date">${post.date}</time>` : ''}
+          ${post.author ? `<span class="post-author">${post.author}</span>` : ''}
+        </div>
+        ${(Array.isArray(post.tags) ? post.tags : (typeof post.tags === 'string' && post.tags ? JSON.parse(post.tags) : [])).length > 0 ? `
+          <span class="post-tags">
+            ${(Array.isArray(post.tags) ? post.tags : JSON.parse(post.tags)).map(tag => `#<a href="/tags/${tag.toLowerCase()}/">${tag}</a>&nbsp;`).join('')}
+          </span>
+        ` : ''}
+        ${post.cover ? `
+          <div class="post-cover">
+            <img src="${post.cover}" alt="${post.title}">
+          </div>
+        ` : ''}
+        <div class="post-content">
+          ${post.description}
+        </div>
+        <div>
+          <a class="read-more button" href="${post.url}">阅读更多 →</a>
+        </div>
+      `;
+      
+      resultsContainer.appendChild(article);
+    });
+
+    searchResults.style.display = 'block';
+    searchNoResults.style.display = 'none';
+  } else {
+    noResultsMessage.textContent = `没有找到包含 "${query}" 的文章`;
+    searchResults.style.display = 'none';
+    searchNoResults.style.display = 'block';
+  }
+}
+
+// 隐藏结果
+function hideResults() {
+  document.getElementById('searchResults').style.display = 'none';
+  document.getElementById('searchNoResults').style.display = 'none';
+}
+
+// 事件监听
+function initSearch() {
+  const searchForm = document.getElementById('searchForm');
+  const searchInput = document.getElementById('searchInput');
+
+  console.log('Search form loaded');
+  console.log('Total posts:', allPosts.length);
+  
+  // 运行测试
+  testSearch();
+
+  if (searchForm && searchInput) {
+    // 启用实时搜索
+    searchInput.addEventListener('input', function() {
+      console.log('Search input:', this.value);
+      performSearch(this.value);
+    });
+  } else {
+    console.error('Search form elements not found');
+  }
+}
+
+// 处理 URL 查询参数
+function handleUrlParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const query = urlParams.get('q');
+  
+  if (query) {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+      searchInput.value = query;
+      performSearch(query);
+    }
+  }
+}
+
+// 确保 DOM 加载完成
+document.addEventListener('DOMContentLoaded', function() {
+  initSearch();
+  handleUrlParams();
+});
+window.addEventListener('load', function() {
+  initSearch();
+  handleUrlParams();
+});
+</script>
+{{ end }}

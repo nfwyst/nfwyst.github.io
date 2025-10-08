@@ -1,0 +1,39 @@
+{{ define "main" }}
+  <div class="terms">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="index-content">
+        {{ . }}
+      </div>
+    {{ end }}
+    
+    {{ $type := .Type }}
+    {{ if eq $type "tags" }}
+      <div class="terms-grid">
+        {{ range $key, $value := .Data.Terms.Alphabetical }}
+        {{ $name := .Name }}
+        {{ $count := .Count }}
+        {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+          <a class="term-tag" href="{{ .Permalink }}">
+            <span class="term-name">{{ .Name }}</span>
+            <span class="term-count">{{ $count }}</span>
+          </a>
+        {{ end }}
+        {{ end }}
+      </div>
+    {{ else }}
+      <div class="terms-list">
+        {{ range $key, $value := .Data.Terms.Alphabetical }}
+        {{ $name := .Name }}
+        {{ $count := .Count }}
+        {{ with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+          <div class="term-item">
+            <a class="term-title" href="{{ .Permalink }}">{{ .Name }}</a>
+            <span class="term-count">{{ $count }} 篇文章</span>
+          </div>
+        {{ end }}
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+{{ end }}

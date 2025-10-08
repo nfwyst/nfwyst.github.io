@@ -1,0 +1,92 @@
+<nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    {{ if or $.Site.Params.showMenuItems ( eq .Site.Params.showMenuItems 0 ) }}
+      {{/*  get first amount of item  */}}
+      {{ range first $.Site.Params.showMenuItems $.Site.Menus.main }}
+        {{ if not .HasChildren }}
+          <li><a href="{{ .URL }}" {{ if .Params.NewTab -}} target="_blank" {{- end }}>{{ .Name }}</a></li>
+        {{ else }}
+        <li>
+          <ul class="menu">
+            <li class="menu__trigger">{{ .Name }}&nbsp;▾</li>
+            <li>
+              <ul class="menu__dropdown">
+                {{ range .Children  }}
+                    <li><a href="{{ .URL }}" {{ if .Params.NewTab -}} target="_blank" {{- end }}>{{ .Name }}</a></li>
+                {{ end }}  
+              </ul>
+            </li>
+          </ul>
+        </li>
+        {{end}}
+      {{ end }}
+      {{ if gt (len $.Site.Menus.main) $.Site.Params.showMenuItems }}
+        <li>
+          <ul class="menu">
+            <li class="menu__trigger">{{ $.Site.Params.MenuMore }}&nbsp;▾</li>
+            <li>
+              <ul class="menu__dropdown">
+                {{ range last (sub (len $.Site.Menus.main) $.Site.Params.showMenuItems) $.Site.Menus.main }}
+                  {{ if not .HasChildren }}
+                    <li><a href="{{ .URL }}" {{ if .Params.NewTab -}} target="_blank" {{- end }}>{{ .Name }}</a></li>
+                  {{ else }}
+                  <li class="menu__subdrop--title">▾&nbsp;{{ .Name }}</li>
+                  <li>
+                    <ul  class="menu__subdrop--list">
+                      {{ range .Children  }}
+                      <li><a href="{{ .URL }}" {{ if .Params.NewTab -}} target="_blank" {{- end }}>{{ .Name }}</a></li>
+                      {{ end }}  
+                    </ul>
+                  </li>
+                  {{ end }}
+                {{ end }}
+              </ul>
+            </li>
+          </ul>
+        </li>
+      {{ end }}
+    {{ else }}
+      {{ range $.Site.Menus.main }}
+        {{ if not .HasChildren }}
+          <li><a href="{{ .URL }}" {{ if .Params.NewTab -}} target="_blank" {{- end }}>{{ .Name }}</a></li>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    
+    {{/* 添加分类和标签链接 */}}
+    <li>
+      <ul class="menu">
+        <li class="menu__trigger">分类&nbsp;▾</li>
+        <li>
+          <ul class="menu__dropdown">
+            <li><a href="/keywords/">所有分类</a></li>
+            {{ range $name, $taxonomy := .Site.Taxonomies.keywords }}
+              {{ with $.Site.GetPage (printf "/keywords/%s" $name) }}
+                <li><a href="{{ .Permalink }}">{{ .Name }}</a></li>
+              {{ end }}
+            {{ end }}
+          </ul>
+        </li>
+      </ul>
+    </li>
+    
+    <li>
+      <ul class="menu">
+        <li class="menu__trigger">标签&nbsp;▾</li>
+        <li>
+          <ul class="menu__dropdown">
+            <li><a href="/tags/">所有标签</a></li>
+            {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+              {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+                <li><a href="{{ .Permalink }}">{{ .Name }}</a></li>
+              {{ end }}
+            {{ end }}
+          </ul>
+        </li>
+      </ul>
+    </li>
+    
+    {{/* 添加搜索链接 */}}
+    <li><a href="/search/">搜索</a></li>
+  </ul>
+</nav>
