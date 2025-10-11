@@ -16,6 +16,10 @@ span.token.comment {
   box-sizing: inherit;
 }
 
+code > span:first-child {
+  margin-left: -32px;
+}
+
 body {
   margin: 0;
   padding: 0;
