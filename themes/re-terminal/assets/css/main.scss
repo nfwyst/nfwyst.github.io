@@ -16,10 +16,6 @@ span.token.comment {
   box-sizing: inherit;
 }
 
-code > span:first-child {
-  margin-left: -32px;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -47,7 +43,9 @@ body {
   }
 
   .post-content {
-    text-indent: 2em;
+    code {
+      text-indent: 0;
+    }
     li {
       text-indent: 0;
       margin-left: calc(2em - 5px);
