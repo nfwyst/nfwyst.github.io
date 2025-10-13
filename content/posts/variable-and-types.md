@@ -1,5 +1,5 @@
 +++
-title = "Variable and Types"
+title = "Go Learn - Variable and Types"
 date = "2025-10-13T23:10:29+08:00"
 tags = ["go"]
 keywords = ["编程语言"]
@@ -187,3 +187,48 @@ fmt.Println(isPassFail) // Prints false
 ```
 
 上面我们声明了四个变量：一个无符号的 32 位整数、一个 32 位浮点数、一个字符串和一个布尔值。我们不给任何变量赋值，而是将它们打印出来查看它们的默认值。这两个数字打印的结果相同，都是 0 ，这对于两种类型来说都是有效的值。空字符串打印时不显示任何内容。布尔值打印 false 。
+
+## 推断类型
+
+有一种声明变量的方法，无需明确指定其类型，即使用简短声明运算符 := 。如果我们在创建变量时就知道要存储什么值，就可以使用 := 运算符。例如：
+
+```go
+nuclearMeltdownOccurring := true
+radiumInGroundWater := 4.521
+daysSinceLastWorkplaceCatastrophe := 0
+externalMessage := "Everything is normal. Keep calm and carry on."
+```
+
+上面，我们能够定义一个 bool 、一个 float 、一个 int 和一个 string ，而无需指定类型。我们使用 := 创建一个变量，并根据提供的值推断其类型。以这种方式创建的浮点数的类型为 float64 。以这种方式创建的整数要么是 int32 ，要么是 int64 （我们将在后面讨论如何确定它们）。
+
+Go 还提供了单独的语法来声明变量并推断其类型。我们可以将上面的代码写成：
+
+```go
+var nuclearMeltdownOccurring = true
+var radiumInGroundWater = 4.521
+var daysSinceLastWorkplaceCatastrophe = 0
+var externalMessage = "Everything is normal. Keep calm and carry on."
+```
+
+请注意，在第二个示例中，我们使用了 var 关键字和 = 运算符。在这两个示例中，我们都声明并初始化了变量同时让 Go 编译器推断所分配值的类型。
+
+## 默认 int 类型
+
+在 Go 中，还有一种更常见的定义 int 的方法。实际上，计算机的只读存储器 (ROM) 中的数据有一个默认长度。
+
+（只读存储器）。一些较新的计算机可能拥有更强大的处理能力，可以存储/处理更大的数据块。这些计算机可能使用的是 64 位架构，但其他计算机仍然运行在 32 位架构上，并且运行良好。通过提供 int 或 uint 类型，Go 会检查计算机的架构是 32 位还是 64 位。然后，它会根据计算机本身的情况，提供 32 位 int （或 uint ）或 64 位类型。
+
+建议使用 int 除非有理由指定 int 的大小（例如知道该值将大于默认类型，或者需要优化使用的空间量）。
+
+```go
+var timesWeWereFooled int
+var foolishGamesPlayed uint
+```
+
+上面我们声明了两个变量，timesWeWereFooled 是 32 位或 64 位的整数。foolishGamesPlayed 是 32 位或 64 位的 foolishGamesPlayed 无符号整数。
+
+```go
+consolationPrizes := 2
+```
+
+当使用 := 运算符声明变量并赋值时，其类型与声明为 int 时相同。在上面的例子中， consolationPrize 类型为 int 。

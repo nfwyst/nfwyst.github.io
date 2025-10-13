@@ -43,6 +43,7 @@ body {
   }
 
   .post-content {
+    text-indent: 2em;
     code {
       text-indent: 0;
     }
@@ -199,6 +200,10 @@ kbd {
     padding: 0;
     margin: 0;
   }
+}
+
+th {
+  text-shadow: 1px 1px white;
 }
 
 pre {

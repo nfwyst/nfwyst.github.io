@@ -68,6 +68,12 @@
       const toc = document.querySelector('.table-of-contents');
       if(toc) {
         toc.style.left = `${Math.ceil(left)}px`;
+        toc.querySelectorAll('a[href^="#"]').forEach(link => {
+          link.onclick = function (e) {
+            e.preventDefault();
+            document.querySelector(decodeURIComponent(this.hash)).scrollIntoView({ behavior: 'smooth' });
+          }
+        });
       }
     }
   }
