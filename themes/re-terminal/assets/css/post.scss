@@ -44,6 +44,9 @@
   }
 
   .table-of-contents {
+    & > h2 {
+      text-indent: 8px;
+    }
     @media (min-width: 685px) {
       position: fixed;
       transition: all 0.3s;
