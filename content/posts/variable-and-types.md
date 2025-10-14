@@ -232,3 +232,53 @@ consolationPrizes := 2
 ```
 
 当使用 := 运算符声明变量并赋值时，其类型与声明为 int 时相同。在上面的例子中， consolationPrize 类型为 int 。
+
+## 更新自身
+
+通过将另一个数字添加到自身并保存新值来更新变量非常常见，因此 Go 提供了一个简写运算符，即 += 运算符, 比如运算 `basketTotal = spinachPrice + basketTotal`, 我们可以使用以下语法完成相同的操作：
+
+```go
+spinachPrice := 1.50
+basketTotal += spinachPrice
+fmt.Println(basketTotal) // Prints: 2.25
+```
+
+我们也可以对字符串做同样的操作:
+
+```go
+command := "Hold my "
+beverage := "soda"
+
+command += beverage
+fmt.Println(command) // Prints: Hold my soda
+```
+
+除了 += （是的，双关语）之外，Go 还有其他算术运算，可以执行计算并更新变量自身的值：
+
+- `-=` 从变量中减去。
+- `*=` 将变量乘以一个因子。
+- `/=` 将变量除以被除数。
+
+## 多变量声明
+
+到目前为止，我们一直在声明变量一个接一个，每个变量都占一行。但 Go 实际上允许我们在一行中声明多个变量，事实上，有几种不同的语法！
+
+让我们从不赋值的声明开始：
+
+```go
+var part1, part2 string
+part1 = "To be..."
+part2 = "Not to be..."
+```
+
+上面，我们在同一行声明了 part1 和 part2 ，并且它们具有相同的类型。如果我们使用这种语法，则两个变量必须是相同的类型。如果我们已经知道要为变量分配什么值，我们可以使用 := 如下所示：
+
+```go
+quote, fact := "Bears, Beets, Battlestar Galactica", true
+fmt.Println(quote) // Prints: Bears, Beets, Battlestar Galactica
+fmt.Println(fact) // Prints: true
+```
+
+在上面的例子中，我们在同一行中使用一个运算符 ( := ) 声明了 quote 和 fact 。然后，根据变量和值的顺序，为这些变量赋值。由于 quote 是第一个变量，字符串 "Bears, Beets, Battlestar Galactica" 是第一个值， quote 值为 "Bears, Beets, Battlestar Galactica" 。同样， fact 也被赋值为 true 。
+
+
