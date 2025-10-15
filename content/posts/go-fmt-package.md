@@ -76,3 +76,108 @@ quote := "To do or not to do"
 fmt.Printf("This value's type is %T.", quote)
 // Prints: This value's type is string.
 ```
+
+现在看看 %d ：
+
+```go
+votingAge := 18
+fmt.Printf("You must be %d years old to vote.", votingAge)
+// Prints: You must be 18 years old to vote.
+```
+
+使用 %d 我们可以将数字插入到字符串中！如果我们需要包含浮点数：
+
+```go
+gpa := 3.8
+fmt.Printf("You're averaging: %f.", gpa)
+// Prints: You're averaging 3.800000.
+```
+
+使用 %f ，我们可以通过 % 和 f 之间添加一个值来限制精度，例如： %.2f 。如果我们在代码中包含这个：
+
+```go
+gpa := 3.8
+fmt.Printf("You're averaging: %.2f.", gpa)
+// Prints: You're averaging 3.80.
+```
+
+## Sprint 和 Sprintln
+
+虽然我们一直在使用 fmt 方法来打印内容，但请记住，它是格式化程序包。我们还有其他不打印字符串的方法
+
+```go
+grade := "100"
+compliment := "Great job!"
+teacherSays := fmt.Sprint("You scored a ", grade, " on the test! ", compliment)
+
+fmt.Print(teacherSays)
+// Prints: You scored a 100 on the test! Great job!
+```
+
+`fmt.Sprint()` 不会打印任何内容。相反，它返回了一个值，我们将其存储在 teacherSays 中。当返回值时，这意味着函数执行了一些计算并返回了计算值。之后，我们可以将返回值用于后续用途。我们将在 Go 函数中更详细地介绍返回值. 现在，我们应该承认返回值和打印值是两回事。在上面的代码中，我们通过连接四个独立的字符串来格式化一个字符串。要查看 teacherSays 的值，我们必须使用 print 语句。
+
+`fmt.Sprintln()` 工作方式与 `fmt.Sprint()` 类似，但它会自动在参数之间包含空格（就像 `fmt.Println()` 与 `fmt.Print()` 的区别一样）:
+
+```go
+quote = fmt.Sprintln("Look ma,", "no spaces!")
+fmt.Print(quote) // Look ma, no spaces!
+```
+
+尽管我们没有在 "Look ma," 中添加尾随空格，也没有在 "no spaces!" 中添加前导空格，但 quote 之间还是连接了一个空格： "Look ma, no spaces!" 。
+
+## Sprintf 方法
+
+如果我们需要插入一个字符串而不打印它，那么我们可以使用 `fmt.Sprintf() `。就像 `fmt.Printf()` 一样， `fmt.Sprintf()` 也可以使用动词：
+
+```go
+correctAns := "A"
+answer := fmt.Sprintf("And the correct answer is… %v!", correctAns)
+
+fmt.Print(answer) // Prints: And the correct answer is… A!
+```
+
+`fmt.Sprintf()` 工作方式与 `fmt.Printf()` 非常相似，主要区别在于 `fmt.Sprintf()` 返回其值而不是将其打印出来
+
+## 获取用户输入
+
+fmt 包中另一个有用的方法是 `fmt.Scan()` ，它允许我们获取用户输入！让我们看一个实际的例子：
+
+```go
+fmt.Println("How are you doing?")
+
+var response string
+fmt.Scan(&response)
+
+fmt.Printf("I'm %v.", response)
+```
+
+我们逐行分析一下：首先，我们在终端上打印 How are you doing? 。然后我们声明一个变量， response ，类型为 string 。 `fmt.Scan(&response)` 会获取空格前的第一个值，并将其存储在 response 中。在终端中，我们会看到：
+
+```go
+How are you doing?
+good
+I'm good.
+```
+
+但是，如果我们尝试输入 not bad ：
+
+```go
+How are you doing?
+not bad
+I'm not.
+```
+
+仅保存 not 部分，因为它与 bad 之间有一个空格隔开。如果我们需要两个值，则需要声明两个变量：
+
+```go
+fmt.Println("How are you doing?")
+
+var response1 string
+var response2 string
+fmt.Scan(&response1)
+fmt.Scan(&response2)
+
+fmt.Printf("I'm %v %v", response1, response2)
+```
+
+`fmt.Scan()` 需要地址作为参数，因此在 response1 和 response2 之前使用 `&` 。我们将在后面详细介绍地址。
