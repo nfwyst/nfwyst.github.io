@@ -64,10 +64,14 @@
     const content = document.querySelector('.container.center.headings--one-size')
     if(content) {
       const client = content.getBoundingClientRect();
-      const left = client.left + content.offsetWidth + 11;
+      const left = Math.ceil(client.left + content.offsetWidth - 35);
       const toc = document.querySelector('.table-of-contents');
+      const overflowWidth = content.scrollWidth - content.offsetWidth;
+      if(overflowWidth > 1) {
+        content.style.marginRight = `${document.documentElement.clientWidth - left + overflowWidth - 3}px`;
+      }
       if(toc) {
-        toc.style.left = `${Math.ceil(left)}px`;
+        toc.style.left = `${left}px`;
         toc.querySelectorAll('a[href^="#"]').forEach(link => {
           link.onclick = function (e) {
             e.preventDefault();
