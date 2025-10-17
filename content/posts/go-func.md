@@ -125,7 +125,7 @@ func main() {
 
 ## 从函数返回值
 
-虽然变量处于函数内部, 但我们有方法将信息从其函数传递到另一个命名空间。让我们描述一下如何将信息从函数内部发送到调用点（即函数被调用的地方）。这是通过返回一个值来实现的——当我们返回一个值时，我们将该值传递到代码中的另一个位置。可以为函数赋予一个返回类型 ，即函数将返回的值的类型。在调用点，返回值可以存储在与函数返回值类型相同的变量中。
+虽然变量处于函数内部, 但我们有方法将信息从函数传递到另一个命名空间。让我们描述一下如何将信息从函数内部发送到调用点（即函数被调用的地方）。这是通过返回一个值来实现的——当我们返回一个值时，我们将该值传递到代码中的另一个位置。可以为函数赋予一个返回类型 ，即函数将返回的值的类型。在调用点，返回值可以存储在与函数返回值类型相同的变量中。
 
 ```go
 func getLengthOfCentralPark() int32 {
@@ -188,3 +188,109 @@ func main() {
 ```
 
 注意，在这两种情况下，我们的函数都能按预期使用提供的参数运行！但是，提供足够的参数非常重要。我们的 multiplier() 函数有两个形参，所以它需要两个参数。如果没有，Go 编译器会抛出一个错误，错误代码为 not enough arguments in call to (functionName) ，在我们的例子中是： not enough arguments in call to multiplier 。
+
+## 使用函数重用代码
+
+函数非常适合代码复用，这意味着当你发现自己一遍又一遍地重复相同的模式时，尝试将其抽象成一个函数可能是个好主意。当你将模式抽象成一个函数时，这意味着我们将解决问题所需的逻辑概括成一个函数来解决多个问题。假设你需要计算数字的平方：
+
+```go
+fmt.Println(5 * 5)
+fmt.Println(6 * 6)
+// ...
+fmt.Println(100 * 100)
+```
+
+这很快就会失控！把所有这些都写下来不符合你的编程能力，因为你可以编写一个函数来解决这个问题！
+
+```go
+func squareNum(num int) {
+  fmt.Println(num * num)
+}
+```
+
+squareNum() 将平方的逻辑抽象到一处！如果你发现公式中存在错误，只需在一处修改代码即可！
+
+## 多个返回值
+
+函数还可以返回多个值。查看下面的示例：
+
+```go
+func GPA(midtermGrade float32, finalGrade float32) (string, float32) {
+  averageGrade := (midtermGrade + finalGrade) / 2
+  var gradeLetter string
+  if averageGrade > 90 {
+    gradeLetter = "A"
+  } else if averageGrade > 80 {
+    gradeLetter = "B"
+  } else if averageGrade > 70 {
+    gradeLetter = "C"
+  } else if averageGrade > 60 {
+    gradeLetter = "D"
+  } else {
+    gradeLetter = "F"
+  }
+
+  return gradeLetter, averageGrade
+}
+```
+
+上面，在包含参数的括号之后，我们需要提供多个返回值的类型，这些返回值也包含在各自的括号中。`GPA` 函数将返回两个值，第一个值是 string ，第二个值是 float32 类型。此外，当我们返回多个值时，我们使用单个 return 关键字，后跟逗号分隔的值: gradeLetter, averageGrade 。当我们调用该函数时：
+
+```go
+func main() {
+  var myMidterm, myFinal float32
+  myMidterm = 89.4
+  myFinal = 74.9
+  var myAverage float32
+  var myGrade string
+  myGrade, myAverage = GPA(myMidterm, myFinal)
+  fmt.Println(myAverage, myGrade) // Prints 82.12 B
+}
+```
+
+我们可以使用必要的参数调用 `GPA()` ，它会返回 82.12 和 B ，然后我们将其打印到终端。
+
+## 延迟执行
+
+我们可以使用 defer 关键字将函数调用延迟到当前作用域末尾。defer 指示 Go 运行一个函数，但要在当前函数的末尾。这对于日志记录、文件写入和其他实用程序非常有用。
+
+```go
+func calculateTaxes(revenue, deductions, credits float64) float64 {
+  defer fmt.Println("Taxes Calculated!")
+  taxRate := .06143
+  fmt.Println("Calculating Taxes")
+
+  if deductions == 0 || credits == 0 {
+    return revenue * taxRate
+  }
+
+
+  taxValue := (revenue - (deductions * credits)) * taxRate
+  if taxValue >= 0 {
+    return taxValue
+  } else {
+    return 0
+  }
+}
+```
+
+在上面的例子中，当我们调用 calculateTaxes() 时，我们立即延迟了一条消息 "Taxes Calculated!" 。这条消息直到函数结束（税费计算完毕并即将退还之后）才会打印出来。通常，我们会考虑在 calculateTaxes() 的末尾添加 `fmt.Println("Taxes Calculated!")` 。但是，我们的代码中有多个 return 语句，与其在每个 return 之前添加一个 print 语句，不如使用 defer 语句，这样无论函数何时结束，它都会打印出来。输出结果如下：
+
+```go
+Calculating Taxes
+Taxes Calculated!
+```
+
+## 回顾与总结
+
+本文介绍了
+
+- 定义一个函数
+- 了解作用域规则
+- 从函数返回一个值
+- 向我们的函数传递参数
+- 通过函数重用代码
+- 从函数返回多个值
+- 将事件推迟到函数结束为止
+
+函数是代码编写和复用中最有价值的模式之一。熟练地编写和调用函数，将帮助你构建更复杂的软件。
