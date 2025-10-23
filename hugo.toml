@@ -1,6 +1,6 @@
 baseURL = "https://nfwyst.js.org"
 languageCode = "en-us"
-pagination.pagerSize = 5
+pagination.pagerSize = 10
 title = "nfwyst's blog"
 theme = "re-terminal"
 
