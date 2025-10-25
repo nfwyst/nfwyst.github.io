@@ -44,7 +44,8 @@ body {
 
   .post-content {
     text-indent: 2em;
-    code {
+    code,
+    pre {
       text-indent: 0;
     }
     li {
