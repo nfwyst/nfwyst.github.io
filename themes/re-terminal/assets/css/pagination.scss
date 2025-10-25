@@ -39,7 +39,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 15px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 
     @media (max-width: $phone) {
       flex-direction: column;
@@ -48,6 +48,10 @@
 
     a {
       text-decoration: none;
+    }
+
+    span.button {
+      overflow: hidden;
     }
 
     /* 确保 next 按钮始终在右侧 */
@@ -185,4 +189,3 @@
     margin-right: 8px;
   }
 }
-
