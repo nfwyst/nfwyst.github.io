@@ -48,7 +48,7 @@ JSON 被广泛用于在 Web 应用程序中促进客户端（例如 Web 浏览�
 ```javascript
 {
   "student": {
-    name: "Rumaisa Mahoney",
+    name: "Bob",
     "age": 30,
     "fullTime": true,
     "languages": [ "JavaScript", "HTML", "CSS", ],

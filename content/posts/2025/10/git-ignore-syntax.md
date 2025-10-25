@@ -38,7 +38,7 @@ config.ini
 # 匹配所有目录下的以 .tmp 结尾的文件
 *.tmp
 
-# 匹配所有目录下的 test1.txt, test2.txt,
+# 匹配所有目录下的 test1.txt, test2.txt
 test?.txt
 
 # 匹配所有目录下的 file1.txt 和 file2.txt
