@@ -73,12 +73,6 @@
         }
         if(toc) {
           toc.style.left = `${left}px`;
-          toc.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.onclick = function (e) {
-              e.preventDefault();
-              document.querySelector(decodeURIComponent(this.hash)).scrollIntoView({ behavior: 'smooth' });
-            }
-          });
         }
       }
     }
@@ -86,5 +80,12 @@
 
   window.onresize = layoutToc
   layoutToc()
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.onclick = function (e) {
+      e.preventDefault();
+      const id = decodeURIComponent(this.hash.slice(1))
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 </script>
 {{ end }}
