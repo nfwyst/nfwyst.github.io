@@ -34,9 +34,16 @@ allMenus.forEach(menu => {
       menu.classList.add("open");
     }
 
-    if (dropdown.getBoundingClientRect().right > container.getBoundingClientRect().right) {
+    const dropdownRect = dropdown.getBoundingClientRect();
+    const viewportWidth = document.documentElement.clientWidth;
+    if (dropdownRect.right > container.getBoundingClientRect().right) {
       dropdown.style.left = "auto";
       dropdown.style.right = 0;
+      dropdown.style.width = `${trigger.getBoundingClientRect().right - 5}px`;
+    } else {
+      dropdown.style.right = "auto";
+      dropdown.style.left = 0;
+      dropdown.style.width = `${viewportWidth - dropdownRect.left - 5}px`;
     }
   });
 
