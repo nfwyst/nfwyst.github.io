@@ -362,3 +362,38 @@ func writeCh(ch chan<- int) {
   // in this function
 }
 ```
+
+## 补充
+
+- 已声明但未初始化的通道与 slice, map 引用类型一样, 其值为 nil
+
+```go
+var s []int       // s is nil
+var c chan string // c is nil
+
+var s = make([]int, 5) // s is initialized and not nil
+var c = make(chan int) // c is initialized and not nil
+```
+
+- 向未初始化的通道读取数据会永久阻塞
+
+```go
+var c chan string
+fmt.Println(<-c)
+```
+
+- 向关闭的通道写入数据会引发恐慌
+
+```go
+var c = make(chan int, 100)
+close(c)
+c <- 1
+```
+
+- 向关闭的通道读取数据会立即返回零值
+
+```go
+var c = make(chan int, 100)
+close(c)
+fmt.Println(<-c)
+```
