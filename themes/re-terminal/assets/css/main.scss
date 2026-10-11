@@ -78,7 +78,7 @@ body {
   }
 
   @media (max-width: $phone) {
-    font-size: 1rem;
+    font-size: 17px;
   }
 }
 
@@ -296,6 +296,12 @@ table {
   border-collapse: collapse;
   width: 100%;
   margin: 40px 0;
+
+  @media (max-width: $phone) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
 }
 
 table,

@@ -25,6 +25,10 @@
   margin: 20px auto;
   padding: 20px 0;
 
+  @media (max-width: $phone) {
+    overflow-x: hidden;
+  }
+
   &:not(:last-of-type) {
     border-bottom: 1px solid var(--border-color);
   }
@@ -47,11 +51,21 @@
     & > h2 {
       text-indent: 8px;
     }
-    @media (min-width: 685px) {
+    @media (min-width: 1360px) {
       position: fixed;
       transition: all 0.3s;
       top: 108px;
-      left: 100%;
+      right: auto;
+      left: calc(50% + 452px);
+      width: calc((100vw - 864px) / 2 - 40px);
+      max-width: 280px;
+      max-height: calc(100vh - 128px);
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      & > h2 {
+        margin-top: 0;
+      }
     }
     a {
       text-underline-offset: 5px;
