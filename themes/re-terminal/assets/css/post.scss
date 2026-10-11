@@ -51,6 +51,16 @@
     & > h2 {
       text-indent: 8px;
     }
+
+    code {
+      background: transparent !important;
+      color: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      margin: 0;
+      padding: 0;
+    }
+
     @media (min-width: 1360px) {
       position: fixed;
       transition: all 0.3s;
